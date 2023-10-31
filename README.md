@@ -1,1 +1,1 @@
-# authkit-examples
+# auhkit-examples
