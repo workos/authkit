@@ -7,6 +7,9 @@ export default function HomePage() {
         <li>
           <Link href="/email-password-example">Email + Password example</Link>
         </li>
+        <li>
+          <Link href="/magic-auth-example">Magic Auth example</Link>
+        </li>
       </ul>
     </main>
   );
