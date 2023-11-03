@@ -4,13 +4,20 @@ import { useFormState } from 'react-dom';
 import { sendMagicAuthCode, authenticateWithMagicAuth } from './magic-auth';
 
 export default function MagicAuthExamplePage() {
-  const [sendCodeState, sendCodeAction] = useFormState(sendMagicAuthCode, {});
-  const [authenticateState, authenticateAction] = useFormState(authenticateWithMagicAuth, {});
+  const [sendCodeState, sendCodeAction] = useFormState(sendMagicAuthCode, {
+    user: null,
+    error: null,
+  });
+
+  const [authenticateState, authenticateAction] = useFormState(authenticateWithMagicAuth, {
+    user: null,
+    error: null,
+  });
 
   if (!sendCodeState.user) {
     return (
       <main key="email">
-        <h1>Magic Auth example</h1>
+        <h1>Magic Auth</h1>
 
         <form action={sendCodeAction}>
           <div>
@@ -28,11 +35,11 @@ export default function MagicAuthExamplePage() {
 
   return (
     <main key="code">
-      <h1>Magic Auth example</h1>
+      <h1>Magic Auth</h1>
 
       <form action={authenticateAction}>
         <div>
-          <label htmlFor="code">Code</label>
+          <label htmlFor="code">Enter code from the email</label>
           <input type="text" name="code" id="code" />
         </div>
 
