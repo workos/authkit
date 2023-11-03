@@ -1,16 +1,118 @@
-/* @tailwind base; */
-@tailwind components;
-@tailwind utilities;
+::selection {
+  background-color: #003eff3e;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  width: 400px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+label {
+  font-weight: bold;
+}
+
+h1 {
+  text-align: center;
+  margin: auto -100px 40px;
+}
+
+label {
+  font-size: 16px;
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-radius: 4px;
+  font-size: 20px;
+  font-family: inherit;
+  height: 48px;
+  padding: 0 12px;
+}
+
+button {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: black;
+  color: white;
+  border-radius: 4px;
+  font-size: 20px;
+  height: 48px;
+  font-family: inherit;
+  border: 0;
+  padding: 0 12px;
+  margin: 8px 0;
+  cursor: pointer;
+}
+
+button:active {
+  background-color: #333;
+}
 
 form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  max-width: 200px;
+  gap: 24px;
+  width: 100%;
+  margin-bottom: auto;
 }
 
 form > div {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+pre {
+  font-size: 16px;
+  box-sizing: border-box;
+  min-height: 250px;
+  height: auto;
+  overflow: auto;
+  width: 100vw;
+  margin: 0;
+  margin-top: 40px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background-color: #fafafa;
+  border-top: 1px solid #eee;
+}
+
+ul {
+  text-align: center;
+  list-style-type: none;
+  margin-top: 0;
+  padding-left: 0;
+}
+
+h1 + ul {
+  margin-top: -24px;
+  margin-bottom: auto;
+  padding-bottom: 10vh;
+}
+
+li {
+  margin: 8px 0;
+}
+
+a {
+  color: black;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  text-decoration-color: #888;
 }
