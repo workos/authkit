@@ -30,6 +30,9 @@ export default function HomePage() {
         <li>
           <Link href="/other/verify-email">Verify email</Link>
         </li>
+        <li>
+          <Link href="/other/reset-password">Reset password</Link>
+        </li>
       </ul>
     </main>
   );

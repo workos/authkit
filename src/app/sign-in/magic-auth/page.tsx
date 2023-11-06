@@ -47,7 +47,7 @@ export default function SignInWithMagicAuth() {
 
         <input type="hidden" name="userId" value={sendCodeState.user.id} />
 
-        <button type="submit">Sign in</button>
+        <button type="submit">Sign-in</button>
       </form>
 
       <pre>{JSON.stringify(signInState, null, 2)}</pre>

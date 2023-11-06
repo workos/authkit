@@ -13,3 +13,4 @@
 ## Other
 
 - [Verify email](./src/app/other/verify-email/page.tsx)
+- [Reset password](./src/app/other/reset-password/page.tsx)

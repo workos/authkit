@@ -25,7 +25,7 @@ export default function SignInWithEmailPassword() {
           <input type="password" name="password" id="password" required />
         </div>
 
-        <button type="submit">Sign in</button>
+        <button type="submit">Sign-in</button>
       </form>
 
       <pre>{JSON.stringify(signInState, null, 2)}</pre>

@@ -45,7 +45,7 @@ export default function VerifyEmail() {
 
         <input type="hidden" name="userId" value={sendCodeState.user.id} />
 
-        <button type="submit">Sign in</button>
+        <button type="submit">Continue</button>
       </form>
 
       <pre>{JSON.stringify(verifyEmailState, null, 2)}</pre>

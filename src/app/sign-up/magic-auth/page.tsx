@@ -30,7 +30,7 @@ export default function SignUpWithMagicAuth() {
           <input type="lastName" name="lastName" id="lastName" />
         </div>
 
-        <button type="submit">Sign up</button>
+        <button type="submit">Sign-up</button>
       </form>
 
       <pre>{JSON.stringify(signUpState, null, 2)}</pre>
