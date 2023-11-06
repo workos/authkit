@@ -49,7 +49,11 @@ input {
   padding: 0 12px;
 }
 
-button {
+button,
+form > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   box-sizing: border-box;
   background-color: black;
@@ -62,6 +66,7 @@ button {
   padding: 0 12px;
   margin: 8px 0;
   cursor: pointer;
+  text-decoration: none;
 }
 
 button:active {
