@@ -1,15 +1,15 @@
 'use client';
 
 import { useFormState } from 'react-dom';
-import { sendMagicAuthCode, authenticateWithMagicAuth } from './magic-auth';
+import { sendCode, signIn } from './magic-auth';
 
-export default function MagicAuthExamplePage() {
-  const [sendCodeState, sendCodeAction] = useFormState(sendMagicAuthCode, {
+export default function SignInWithMagicAuth() {
+  const [sendCodeState, sendCodeAction] = useFormState(sendCode, {
     user: null,
     error: null,
   });
 
-  const [authenticateState, authenticateAction] = useFormState(authenticateWithMagicAuth, {
+  const [signInState, signInAction] = useFormState(signIn, {
     user: null,
     error: null,
   });
@@ -17,12 +17,13 @@ export default function MagicAuthExamplePage() {
   if (!sendCodeState.user) {
     return (
       <main key="email">
-        <h1>Magic Auth</h1>
+        <h1>Sign-in</h1>
+        <h2>Magic Auth</h2>
 
         <form action={sendCodeAction}>
           <div>
             <label htmlFor="email">Email</label>
-            <input type="email" name="email" id="email" />
+            <input type="email" name="email" id="email" required />
           </div>
 
           <button type="submit">Send code</button>
@@ -35,12 +36,13 @@ export default function MagicAuthExamplePage() {
 
   return (
     <main key="code">
-      <h1>Magic Auth</h1>
+      <h1>Sign-in</h1>
+      <h2>Magic Auth</h2>
 
-      <form action={authenticateAction}>
+      <form action={signInAction}>
         <div>
           <label htmlFor="code">Enter code from the email</label>
-          <input type="text" name="code" id="code" />
+          <input type="text" name="code" id="code" required />
         </div>
 
         <input type="hidden" name="userId" value={sendCodeState.user.id} />
@@ -48,7 +50,7 @@ export default function MagicAuthExamplePage() {
         <button type="submit">Sign in</button>
       </form>
 
-      <pre>{JSON.stringify(authenticateState, null, 2)}</pre>
+      <pre>{JSON.stringify(signInState, null, 2)}</pre>
     </main>
   );
 }

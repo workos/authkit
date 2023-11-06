@@ -6,7 +6,7 @@ const workos = new WorkOS(process.env.WORKOS_API_KEY, {
   apiHostname: 'api.workos-test.com',
 });
 
-export async function authenticateWithPassword(prevState: any, formData: FormData) {
+export async function signIn(prevState: any, formData: FormData) {
   try {
     return await workos.users.authenticateWithPassword({
       clientId: process.env.WORKOS_CLIENT_ID || '',
@@ -14,6 +14,6 @@ export async function authenticateWithPassword(prevState: any, formData: FormDat
       password: formData.get('password') as string,
     });
   } catch (error) {
-    return { error: error.rawData };
+    return { error: JSON.parse(JSON.stringify(error)) };
   }
 }

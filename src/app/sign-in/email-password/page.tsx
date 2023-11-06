@@ -1,19 +1,20 @@
 'use client';
 
 import { useFormState } from 'react-dom';
-import { authenticateWithPassword } from './email-password';
+import { signIn } from './email-password';
 
-export default function EmailPasswordExamplePage() {
-  const [authenticateState, authenticateAction] = useFormState(authenticateWithPassword, {
+export default function SignInWithEmailPassword() {
+  const [signInState, signInAction] = useFormState(signIn, {
     user: null,
     error: null,
   });
 
   return (
     <main>
-      <h1>Email + Password</h1>
+      <h1>Sign-in</h1>
+      <h2>Email + Password</h2>
 
-      <form action={authenticateAction}>
+      <form action={signInAction}>
         <div>
           <label htmlFor="email">Email</label>
           <input type="email" name="email" id="email" required />
@@ -27,7 +28,7 @@ export default function EmailPasswordExamplePage() {
         <button type="submit">Sign in</button>
       </form>
 
-      <pre>{JSON.stringify(authenticateState, null, 2)}</pre>
+      <pre>{JSON.stringify(signInState, null, 2)}</pre>
     </main>
   );
 }
