@@ -24,6 +24,13 @@ export default function HomePage() {
           <Link href="/sign-in/magic-auth">Magic Auth</Link>
         </li>
       </ul>
+
+      <h2>Other</h2>
+      <ul>
+        <li>
+          <Link href="/other/verify-email">Verify email</Link>
+        </li>
+      </ul>
     </main>
   );
 }

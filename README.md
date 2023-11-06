@@ -9,3 +9,7 @@
 
 - [Email + Password](./src/app/sign-in/email-password/page.tsx)
 - [Magic Auth](./src/app/sign-in/magic-auth/page.tsx)
+
+## Other
+
+- [Verify email](./src/app/other/verify-email/page.tsx)
