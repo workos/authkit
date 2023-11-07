@@ -141,12 +141,7 @@ th,
 td {
   text-align: left;
   padding: 12px 24px;
-}
-tr th {
   border-bottom: 1px solid black;
-}
-tr td {
-  border-bottom: 1px solid #ccc;
 }
 table + nav {
   box-sizing: border-box;
