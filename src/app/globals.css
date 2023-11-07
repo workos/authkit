@@ -18,12 +18,8 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: auto;
-  width: 400px;
   min-height: 100vh;
   box-sizing: border-box;
-  justify-content: center;
-  padding-top: 40px;
 }
 
 label {
@@ -82,8 +78,8 @@ button:active {
 form {
   display: flex;
   flex-direction: column;
+  width: 400px;
   gap: 24px;
-  width: 100%;
   margin-bottom: auto;
 }
 
@@ -135,4 +131,31 @@ a {
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
   text-decoration-color: #888;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th,
+td {
+  text-align: left;
+  padding: 12px 24px;
+}
+tr th {
+  border-bottom: 1px solid black;
+}
+tr td {
+  border-bottom: 1px solid #ccc;
+}
+table + nav {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  width: 100%;
+  gap: 24px;
+  margin-bottom: auto;
+  color: #888;
 }
