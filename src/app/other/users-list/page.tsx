@@ -1,13 +1,18 @@
 import WorkOS from '@workos-inc/node';
 import type { User } from '@workos-inc/node';
 import Link from 'next/link';
+import { deleteUser } from './users-list';
 
 const workos = new WorkOS(process.env.WORKOS_API_KEY, {
   apiHostname: 'api.workos-test.com',
 });
 
-export default async function UsersList({ searchParams }: { searchParams: { after?: string } }) {
-  const usersList = await workos.users.listUsers({ after: searchParams.after });
+export default async function UsersList({
+  searchParams,
+}: {
+  searchParams: { before?: string; after?: string };
+}) {
+  const usersList = await workos.users.listUsers({ limit: 5, ...searchParams });
   const { before, after } = usersList.listMetadata;
 
   return (
@@ -19,15 +24,22 @@ export default async function UsersList({ searchParams }: { searchParams: { afte
           <tr>
             <th style={{ width: '40%' }}>Email</th>
             <th>Name</th>
-            <th style={{ width: '10%', textAlign: 'right' }}>Verified</th>
+            <th style={{ width: '10%', textAlign: 'center' }}>Verified</th>
+            <th style={{ width: '10%', textAlign: 'right' }} />
           </tr>
         </thead>
         <tbody>
           {usersList.data.map((user) => (
             <tr key={user.id}>
-              <td>{user.email}</td>
+              <td title={user.id}>{user.email}</td>
               <td>{formatName(user)}</td>
-              <td style={{ textAlign: 'right' }}>{user.emailVerified ? 'Yes' : 'No'}</td>
+              <td style={{ textAlign: 'center' }}>{user.emailVerified ? 'Yes' : 'No'}</td>
+              <td style={{ textAlign: 'right' }}>
+                <form action={deleteUser}>
+                  <input type="hidden" name="userId" value={user.id} />
+                  <button type="submit">Delete</button>
+                </form>
+              </td>
             </tr>
           ))}
         </tbody>
