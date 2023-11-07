@@ -34,6 +34,9 @@ export default function HomePage() {
       <h2>Other</h2>
       <ul>
         <li>
+          <Link href="/mfa">Multi-Factor Auth</Link>
+        </li>
+        <li>
           <Link href="/verify-email">Verify email</Link>
         </li>
         <li>

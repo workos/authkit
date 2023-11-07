@@ -17,7 +17,7 @@ export default function SignUpWithMagicAuth() {
       <form action={signUpAction}>
         <div>
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" required />
+          <input type="email" name="email" id="email" autoFocus required />
         </div>
 
         <div>

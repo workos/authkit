@@ -22,7 +22,7 @@ export default function VerifyEmail() {
         <form action={sendCodeAction}>
           <div>
             <label htmlFor="email">Email</label>
-            <input type="email" name="email" id="email" required />
+            <input type="email" name="email" id="email" autoFocus required />
           </div>
 
           <button type="submit">Send code</button>
@@ -40,7 +40,7 @@ export default function VerifyEmail() {
       <form action={verifyEmailAction}>
         <div>
           <label htmlFor="code">Enter code from the email</label>
-          <input type="text" name="code" id="code" required />
+          <input type="text" name="code" id="code" autoFocus required />
         </div>
 
         <input type="hidden" name="userId" value={sendCodeState.user.id} />

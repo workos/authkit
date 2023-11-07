@@ -24,7 +24,7 @@ export default function ResetPassword({ searchParams }: { searchParams: { token?
         <form action={sendResetAction}>
           <div>
             <label htmlFor="email">Email</label>
-            <input type="email" name="email" id="email" required />
+            <input type="email" name="email" id="email" autoFocus required />
           </div>
 
           <button type="submit">Send reset instructions</button>
@@ -42,7 +42,7 @@ export default function ResetPassword({ searchParams }: { searchParams: { token?
       <form action={resetPasswordAction}>
         <div>
           <label htmlFor="newPassword">New Password</label>
-          <input type="password" name="newPassword" id="newPassword" required />
+          <input type="password" name="newPassword" id="newPassword" autoFocus required />
         </div>
 
         <input type="hidden" name="token" value={token} />
