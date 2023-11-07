@@ -14,6 +14,6 @@
 
 ## Other
 
-- [Verify email](./src/app/other/verify-email/page.tsx)
-- [Reset password](./src/app/other/reset-password/page.tsx)
-- [Users table](./src/app/other/users-table/page.tsx)
+- [Verify email](./src/app/verify-email/page.tsx)
+- [Reset password](./src/app/reset-password/page.tsx)
+- [Users table](./src/app/users-table/page.tsx)

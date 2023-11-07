@@ -34,13 +34,13 @@ export default function HomePage() {
       <h2>Other</h2>
       <ul>
         <li>
-          <Link href="/other/verify-email">Verify email</Link>
+          <Link href="/verify-email">Verify email</Link>
         </li>
         <li>
-          <Link href="/other/reset-password">Reset password</Link>
+          <Link href="/reset-password">Reset password</Link>
         </li>
         <li>
-          <Link href="/other/users-table">Users table</Link>
+          <Link href="/users-table">Users table</Link>
         </li>
       </ul>
     </main>
