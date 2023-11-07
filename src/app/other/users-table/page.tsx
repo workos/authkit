@@ -7,13 +7,13 @@ const workos = new WorkOS(process.env.WORKOS_API_KEY, {
   apiHostname: 'api.workos-test.com',
 });
 
-export default async function UsersList({
+export default async function UsersTable({
   searchParams,
 }: {
   searchParams: { before?: string; after?: string };
 }) {
-  const usersList = await workos.users.listUsers({ limit: 5, ...searchParams });
-  const { before, after } = usersList.listMetadata;
+  const users = await workos.users.listUsers({ limit: 5, ...searchParams });
+  const { before, after } = users.listMetadata;
 
   return (
     <main>
@@ -29,7 +29,7 @@ export default async function UsersList({
           </tr>
         </thead>
         <tbody>
-          {usersList.data.map((user) => (
+          {users.data.map((user) => (
             <tr key={user.id}>
               <td title={user.id}>{user.email}</td>
               <td>{formatName(user)}</td>

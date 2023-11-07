@@ -16,4 +16,4 @@
 
 - [Verify email](./src/app/other/verify-email/page.tsx)
 - [Reset password](./src/app/other/reset-password/page.tsx)
-- [Users list](./src/app/other/users-list/page.tsx)
+- [Users table](./src/app/other/users-table/page.tsx)

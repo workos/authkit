@@ -40,7 +40,7 @@ export default function HomePage() {
           <Link href="/other/reset-password">Reset password</Link>
         </li>
         <li>
-          <Link href="/other/users-list">Users list</Link>
+          <Link href="/other/users-table">Users table</Link>
         </li>
       </ul>
     </main>
