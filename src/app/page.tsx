@@ -26,6 +26,9 @@ export default function HomePage() {
         <li>
           <Link href="/sign-in/google-oauth">Google OAuth</Link>
         </li>
+        <li>
+          <Link href="/sign-in/microsoft-oauth">Microsoft OAuth</Link>
+        </li>
       </ul>
 
       <h2>Other</h2>

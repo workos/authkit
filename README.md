@@ -10,6 +10,7 @@
 - [Email + Password](./src/app/sign-in/email-password/page.tsx)
 - [Magic Auth](./src/app/sign-in/magic-auth/page.tsx)
 - [Google OAuth](./src/app/sign-in/google-oauth/page.tsx)
+- [Microsoft OAuth](./src/app/sign-in/microsoft-oauth/page.tsx)
 
 ## Other
 
