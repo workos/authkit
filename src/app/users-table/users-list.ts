@@ -12,7 +12,7 @@ export async function deleteUser(formData: FormData) {
     await workos.users.deleteUser({
       userId: formData.get('userId') as string,
     });
-    revalidatePath('/other/users-list');
+    revalidatePath('/users-table');
   } catch (error) {
     console.log(error);
   }
