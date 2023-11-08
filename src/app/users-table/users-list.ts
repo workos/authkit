@@ -3,9 +3,7 @@
 import WorkOS from '@workos-inc/node';
 import { revalidatePath } from 'next/cache';
 
-const workos = new WorkOS(process.env.WORKOS_API_KEY, {
-  apiHostname: 'api.workos-test.com',
-});
+const workos = new WorkOS(process.env.WORKOS_API_KEY);
 
 export async function deleteUser(formData: FormData) {
   try {

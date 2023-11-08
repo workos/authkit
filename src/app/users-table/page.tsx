@@ -3,9 +3,7 @@ import type { User } from '@workos-inc/node';
 import Link from 'next/link';
 import { deleteUser } from './users-list';
 
-const workos = new WorkOS(process.env.WORKOS_API_KEY, {
-  apiHostname: 'api.workos-test.com',
-});
+const workos = new WorkOS(process.env.WORKOS_API_KEY);
 
 export default async function UsersTable({
   searchParams,

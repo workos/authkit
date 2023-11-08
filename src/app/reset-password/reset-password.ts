@@ -2,9 +2,7 @@
 
 import WorkOS from '@workos-inc/node';
 
-const workos = new WorkOS(process.env.WORKOS_API_KEY, {
-  apiHostname: 'api.workos-test.com',
-});
+const workos = new WorkOS(process.env.WORKOS_API_KEY);
 
 export async function sendReset(prevState: any, formData: FormData) {
   try {
@@ -24,6 +22,7 @@ export async function resetPassword(prevState: any, formData: FormData) {
       token: formData.get('token') as string,
     });
   } catch (error) {
+    console.log(error);
     return { error: JSON.parse(JSON.stringify(error)) };
   }
 }

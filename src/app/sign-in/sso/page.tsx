@@ -1,8 +1,6 @@
 import WorkOS from '@workos-inc/node';
 
-const workos = new WorkOS(process.env.WORKOS_API_KEY, {
-  apiHostname: 'api.workos-test.com',
-});
+const workos = new WorkOS(process.env.WORKOS_API_KEY);
 
 export default function SignInWithSSO({
   searchParams,
@@ -13,7 +11,7 @@ export default function SignInWithSSO({
 
   const ssoUrl = workos.sso.getAuthorizationURL({
     clientID: process.env.WORKOS_CLIENT_ID || '',
-    domain: process.env.SSO_ENABLED_DOMAIN || '',
+    organization: process.env.SSO_ENABLED_ORGANIZATION_ID || '',
     redirectURI: 'http://localhost:3000/sign-in/sso/callback',
   });
 

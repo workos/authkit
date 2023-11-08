@@ -2,9 +2,7 @@
 
 import WorkOS from '@workos-inc/node';
 
-const workos = new WorkOS(process.env.WORKOS_API_KEY, {
-  apiHostname: 'api.workos-test.com',
-});
+const workos = new WorkOS(process.env.WORKOS_API_KEY);
 
 export async function signIn(prevState: any, formData: FormData) {
   try {
