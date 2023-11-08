@@ -29,6 +29,9 @@ export default function HomePage() {
         <li>
           <Link href="/sign-in/microsoft-oauth">Microsoft OAuth</Link>
         </li>
+        <li>
+          <Link href="/sign-in/sso">Single Sign-On</Link>
+        </li>
       </ul>
 
       <h2>Other</h2>

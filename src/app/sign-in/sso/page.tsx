@@ -4,26 +4,26 @@ const workos = new WorkOS(process.env.WORKOS_API_KEY, {
   apiHostname: 'api.workos-test.com',
 });
 
-export default function SignInWithMicrosoftOAuth({
+export default function SignInWithSSO({
   searchParams,
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
   const result = JSON.parse(String(searchParams.response ?? '{ "user": null, "error": null }'));
 
-  const microsoftOAuthUrl = workos.sso.getAuthorizationURL({
+  const ssoUrl = workos.sso.getAuthorizationURL({
     clientID: process.env.WORKOS_CLIENT_ID || '',
-    provider: 'MicrosoftOAuth',
-    redirectURI: 'http://localhost:3000/sign-in/microsoft-oauth/callback',
+    domain: process.env.SSO_ENABLED_DOMAIN || '',
+    redirectURI: 'http://localhost:3000/sign-in/sso/callback',
   });
 
   return (
     <main>
       <h1>Sign-in</h1>
-      <h2>Microsoft OAuth</h2>
+      <h2>Single Sign-On</h2>
 
       <form>
-        <a href={microsoftOAuthUrl}>Continue with Microsoft</a>
+        <a href={ssoUrl}>Continue with SSO</a>
       </form>
 
       <pre>{JSON.stringify(result, null, 2)}</pre>
