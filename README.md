@@ -39,8 +39,6 @@ For the Google OAuth and Microsoft OAuth examples, WorkOS provides demo app cred
 For the Single Sign-On example, you will need to create an organization in your WorkOS dashboard. Navigate to **Organizations** and then **Create organization**. Enter a name for this organization, and optionally add a domain that the members will use to sign in. Once created, copy the **Organization ID** (located below the organization's name on its detail page) and add it to your `.env.local` file.
 
   ```bash
-  WORKOS_CLIENT_ID="<your Client ID>"
-  WORKOS_API_KEY="<your Secret Key>"
   SSO_ENABLED_ORGANIZATION_ID="<your Organization ID>"
   ```
 
