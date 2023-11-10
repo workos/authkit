@@ -1,7 +1,7 @@
 <p align="center">
     <img src="https://github.com/workos/authkit-examples/assets/896475/c11765ce-cf6c-4157-87fd-c7776b509657" width="72" height="72" />
     <h1 align="center">Custom AuthKit Examples</h1>
-    <p align="center">Examples demonstating how to build your own frontend UI with WorkOS User Management APIs</p>
+    <p align="center">Examples demonstrating how to build your own frontend UI with WorkOS User Management APIs</p>
     <p align="center"><strong><a href="https://workos.com/docs/user-management">Explore the docs</a></strong></p>
     <br><br><br>
 </p>
@@ -9,7 +9,7 @@
 ## Setup
 
 - You will need a [WorkOS account](https://dashboard.workos.com/signup)
-- Sign in to the [WorkOS dashboard](https://dashboard.workos.com), navigate to **API Keys** and copy the **Client ID** and the **Secret Key** (API Key).
+- Sign in to your [WorkOS dashboard](https://dashboard.workos.com), navigate to **API Keys** and copy the **Client ID** and the **Secret Key** (API Key).
 - Rename the `.env.local.example` file to `.env.local` and supply your _Client ID_ and _Secret Key_.
 
   ```bash
@@ -19,7 +19,7 @@
 
 ## Examples
 
-For each example below, you will need to ensure the applicable authentication method is enabled in your WorkOS dashboard. To do so navigate to **Authentication** and edit the applicable authentication method and ensure it is set to **Enabled**.
+For each example, you will need to ensure the applicable authentication method is enabled in your WorkOS dashboard. To do so navigate to **Authentication** and edit the applicable authentication method and ensure it is set to **Enabled**.
 
 ### Sign-up
 
