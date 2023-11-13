@@ -7,7 +7,7 @@ export default function SignInWithGoogleOAuth({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const result = JSON.parse(String(searchParams.response ?? '{ "user": null, "error": null }'));
+  const result = JSON.parse(String(searchParams.response ?? '{ "error": null }'));
 
   const googleOAuthUrl = workos.sso.getAuthorizationURL({
     clientID: process.env.WORKOS_CLIENT_ID || '',

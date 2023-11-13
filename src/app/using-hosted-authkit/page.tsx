@@ -7,9 +7,9 @@ export default function UsingHostedAuthKit({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const result = JSON.parse(String(searchParams.response ?? '{ "user": null, "error": null }'));
+  const result = JSON.parse(String(searchParams.response ?? '{ "error": null }'));
 
-  const authKitAuthorizationUrl = workos.sso.getAuthorizationURL({
+  const authKitUrl = workos.sso.getAuthorizationURL({
     clientID: process.env.WORKOS_CLIENT_ID || '',
     provider: 'authkit',
     redirectURI: 'http://localhost:3000/using-hosted-authkit/callback',
@@ -20,7 +20,7 @@ export default function UsingHostedAuthKit({
       <h1>Using hosted AuthKit</h1>
 
       <form>
-        <a href={authKitAuthorizationUrl}>Sign-in with AuthKit</a>
+        <a href={authKitUrl}>Sign-in with AuthKit</a>
       </form>
 
       <pre>{JSON.stringify(result, null, 2)}</pre>

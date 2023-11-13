@@ -4,17 +4,10 @@ import { useFormState } from 'react-dom';
 import { sendCode, signIn } from './magic-auth';
 
 export default function SignInWithMagicAuth() {
-  const [sendCodeState, sendCodeAction] = useFormState(sendCode, {
-    user: null,
-    error: null,
-  });
+  const [sendCodeState, sendCodeAction] = useFormState(sendCode, { error: null });
+  const [signInState, signInAction] = useFormState(signIn, { error: null });
 
-  const [signInState, signInAction] = useFormState(signIn, {
-    user: null,
-    error: null,
-  });
-
-  if (!sendCodeState.user) {
+  if (!('user' in sendCodeState)) {
     return (
       <main key="email">
         <h1>Sign-in</h1>
