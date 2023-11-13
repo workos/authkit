@@ -4,10 +4,7 @@ import { useFormState } from 'react-dom';
 import { signIn } from './email-password';
 
 export default function SignInWithEmailPassword() {
-  const [signInState, signInAction] = useFormState(signIn, {
-    user: null,
-    error: null,
-  });
+  const [signInState, signInAction] = useFormState(signIn, { error: null });
 
   return (
     <main>

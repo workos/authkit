@@ -4,10 +4,7 @@ import { useFormState } from 'react-dom';
 import { signUp } from './magic-auth';
 
 export default function SignUpWithMagicAuth() {
-  const [signUpState, signUpAction] = useFormState(signUp, {
-    user: null,
-    error: null,
-  });
+  const [signUpState, signUpAction] = useFormState(signUp, { error: null });
 
   return (
     <main>

@@ -6,15 +6,8 @@ import { sendReset, resetPassword } from './reset-password';
 export default function ResetPassword({ searchParams }: { searchParams: { token?: string } }) {
   const { token } = searchParams;
 
-  const [sendResetState, sendResetAction] = useFormState(sendReset, {
-    user: null,
-    error: null,
-  });
-
-  const [resetPasswordState, resetPasswordAction] = useFormState(resetPassword, {
-    user: null,
-    error: null,
-  });
+  const [sendResetState, sendResetAction] = useFormState(sendReset, { error: null });
+  const [resetPasswordState, resetPasswordAction] = useFormState(resetPassword, { error: null });
 
   if (!token) {
     return (

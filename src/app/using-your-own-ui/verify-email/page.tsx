@@ -4,17 +4,10 @@ import { useFormState } from 'react-dom';
 import { sendCode, verifyEmail } from './verify-email';
 
 export default function VerifyEmail() {
-  const [sendCodeState, sendCodeAction] = useFormState(sendCode, {
-    user: null,
-    error: null,
-  });
+  const [sendCodeState, sendCodeAction] = useFormState(sendCode, { error: null });
+  const [verifyEmailState, verifyEmailAction] = useFormState(verifyEmail, { error: null });
 
-  const [verifyEmailState, verifyEmailAction] = useFormState(verifyEmail, {
-    user: null,
-    error: null,
-  });
-
-  if (!sendCodeState.user) {
+  if (!('user' in sendCodeState)) {
     return (
       <main key="email">
         <h1>Verify email</h1>

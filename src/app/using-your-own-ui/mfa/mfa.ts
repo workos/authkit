@@ -1,10 +1,12 @@
 'use server';
 
 import WorkOS from '@workos-inc/node';
+import type { AuthenticationResponse } from '@workos-inc/node';
+import type { Factor, Challenge } from '@workos-inc/node/lib/mfa/interfaces';
 
 const workos = new WorkOS(process.env.WORKOS_API_KEY);
 
-export async function signIn(prevState: any, formData: FormData) {
+export async function signIn(prevState: any, formData: FormData): Promise<SignInResponse> {
   try {
     return await workos.users.authenticateWithPassword({
       clientId: process.env.WORKOS_CLIENT_ID || '',
@@ -56,3 +58,12 @@ export async function verifyTotp(prevState: any, formData: FormData) {
     return { error: JSON.parse(JSON.stringify(error)) };
   }
 }
+
+type SignInResponse =
+  | AuthenticationResponse
+  | {
+      authenticationFactor?: Factor;
+      authenticationChallenge: Challenge;
+      pendingAuthenticationToken: string;
+    }
+  | { error: any };

@@ -5,10 +5,10 @@ import { signIn, verifyTotp } from './mfa';
 import Image from 'next/image';
 
 export default function Mfa() {
-  const [signInState, signInAction] = useFormState(signIn, {});
-  const [verifyState, verifyAction] = useFormState(verifyTotp, {});
+  const [signInState, signInAction] = useFormState(signIn, { error: null });
+  const [verifyState, verifyAction] = useFormState(verifyTotp, { error: null });
 
-  if (!signInState.authenticationChallenge && !verifyState.user) {
+  if (!('authenticationChallenge' in signInState) || 'user' in signInState) {
     return (
       <main key="sign-in">
         <h1>Multi-Factor Auth</h1>
@@ -42,7 +42,7 @@ export default function Mfa() {
           <h2>Enroll</h2>
           <p>Scan the QR code</p>
           <Image
-            src={signInState.authenticationFactor.totp.qrCode}
+            src={signInState.authenticationFactor.totp!.qrCode}
             width="160"
             height="160"
             alt="QR code"
