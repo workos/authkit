@@ -7,8 +7,8 @@ import BackLink from './back-link';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Authkit examples',
-  description: 'A collection of examples for Authkit',
+  title: 'AuthKit examples',
+  description: 'A collection of examples for AuthKit',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

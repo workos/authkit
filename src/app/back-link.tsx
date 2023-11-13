@@ -5,6 +5,13 @@ import { usePathname } from 'next/navigation';
 
 export default function BackLink() {
   const pathname = usePathname();
-  if (pathname === '/') return null;
-  return <Link href="/">Examples</Link>;
+  switch (pathname) {
+    case '/':
+      return null;
+    case '/using-your-own-ui':
+    case '/using-hosted-authkit':
+      return <Link href="/">Home</Link>;
+    default:
+      return <Link href="/using-your-own-ui">Examples</Link>;
+  }
 }

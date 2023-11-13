@@ -12,7 +12,7 @@ export default function SignInWithSSO({
   const ssoUrl = workos.sso.getAuthorizationURL({
     clientID: process.env.WORKOS_CLIENT_ID || '',
     organization: process.env.SSO_ENABLED_ORGANIZATION_ID || '',
-    redirectURI: 'http://localhost:3000/sign-in/sso/callback',
+    redirectURI: 'http://localhost:3000/using-your-own-ui/sign-in/sso/callback',
   });
 
   return (

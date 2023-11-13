@@ -12,7 +12,7 @@ export default function SignInWithMicrosoftOAuth({
   const microsoftOAuthUrl = workos.sso.getAuthorizationURL({
     clientID: process.env.WORKOS_CLIENT_ID || '',
     provider: 'MicrosoftOAuth',
-    redirectURI: 'http://localhost:3000/sign-in/microsoft-oauth/callback',
+    redirectURI: 'http://localhost:3000/using-your-own-ui/sign-in/microsoft-oauth/callback',
   });
 
   return (

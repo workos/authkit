@@ -18,6 +18,6 @@ export async function GET(request: Request) {
   }
 
   if (response) {
-    redirect(`http://localhost:3000/sign-in/microsoft-oauth?response=${JSON.stringify(response)}`);
+    redirect(`http://localhost:3000/using-hosted-authkit?response=${JSON.stringify(response)}`);
   }
 }

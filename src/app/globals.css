@@ -117,6 +117,7 @@ h2 + ul {
   margin-top: -24px;
   margin-bottom: 80px;
 }
+h1 + ul:last-child,
 h2 + ul:last-child {
   margin-bottom: auto;
   padding-bottom: 10vh;
