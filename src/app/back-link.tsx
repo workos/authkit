@@ -5,13 +5,8 @@ import { usePathname } from 'next/navigation';
 
 export default function BackLink() {
   const pathname = usePathname();
-  switch (pathname) {
-    case '/':
-      return null;
-    case '/using-your-own-ui':
-    case '/using-hosted-authkit':
-      return <Link href="/">Home</Link>;
-    default:
-      return <Link href="/using-your-own-ui">Examples</Link>;
-  }
+  const segments = pathname.split('/').filter(Boolean);
+  if (segments.length === 0) return null;
+  if (segments.length === 1) return <Link href="/">Home</Link>;
+  return <Link href={`/${segments[0]}`}>Examples</Link>;
 }
