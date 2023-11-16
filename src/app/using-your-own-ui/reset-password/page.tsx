@@ -6,6 +6,11 @@ import { sendReset, resetPassword } from './reset-password';
 export default function ResetPassword({ searchParams }: { searchParams: { token?: string } }) {
   const { token } = searchParams;
 
+  // This example uses Next.js server actions to call functions on the server side.
+  //
+  // If your application is a single page app (SPA), you will need to:
+  // - handle the form submission in `<form onSubmit>`
+  // - make an API call to your backend (e.g using `fetch`)
   const [sendResetState, sendResetAction] = useFormState(sendReset, { error: null });
   const [resetPasswordState, resetPasswordAction] = useFormState(resetPassword, { error: null });
 
