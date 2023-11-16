@@ -3,6 +3,15 @@ import type { User } from '@workos-inc/node';
 import Link from 'next/link';
 import { deleteUser } from './users-table';
 
+// This example uses Next.js with React Server Components.
+// Because this page is an RSC, the code stays on the server, which allows
+// us to use the WorkOS Node SDK without exposing our API key to the client.
+//
+// If your application is a single page app (SPA), you will need to:
+// - create a backend endpoint to return the list of users
+// - adapt the code below in your endpoint
+// - make an API call to your backend (e.g using `fetch`)
+
 const workos = new WorkOS(process.env.WORKOS_API_KEY);
 
 export default async function UsersTable({
