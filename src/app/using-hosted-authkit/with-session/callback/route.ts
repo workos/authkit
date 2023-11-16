@@ -3,6 +3,12 @@ import { NextResponse } from 'next/server';
 import { SignJWT } from 'jose';
 import { getJwtSecretKey } from '../auth';
 
+// This is a Next.js Route Handler.
+//
+// If your application is a single page app (SPA) with a separate backend you will need to:
+// - create a backend endpoint to handle the request
+// - adapt the code below in your endpoint
+
 const workos = new WorkOS(process.env.WORKOS_API_KEY);
 
 export async function GET(request: Request) {
