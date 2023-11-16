@@ -1,7 +1,7 @@
 import WorkOS from '@workos-inc/node';
 import type { User } from '@workos-inc/node';
 import Link from 'next/link';
-import { deleteUser } from './users-list';
+import { deleteUser } from './users-table';
 
 const workos = new WorkOS(process.env.WORKOS_API_KEY);
 
