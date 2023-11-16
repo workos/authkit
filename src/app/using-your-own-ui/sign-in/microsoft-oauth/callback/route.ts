@@ -1,6 +1,16 @@
 import WorkOS from '@workos-inc/node';
 import { redirect } from 'next/navigation';
 
+// This is a Next.js Route Handler.
+//
+// If your application is a single page app (SPA) with a separate backend you will need to:
+// - create a backend endpoint to handle the request
+// - adapt the code below in your endpoint
+//
+// Please also note that for the sake of simplicity, we directly return the user here in the query string.
+// In a real application, you would probably store the user in a token (JWT)
+// and store that token in your DB or use cookies.
+
 const workos = new WorkOS(process.env.WORKOS_API_KEY);
 
 export async function GET(request: Request) {

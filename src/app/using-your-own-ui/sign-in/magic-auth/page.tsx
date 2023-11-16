@@ -4,6 +4,11 @@ import { useFormState } from 'react-dom';
 import { sendCode, signIn } from './magic-auth';
 
 export default function SignInWithMagicAuth() {
+  // This example uses Next.js server actions to call functions on the server side.
+  //
+  // If your application is a single page app (SPA), you will need to:
+  // - handle the form submission in `<form onSubmit>`
+  // - make an API call to your backend (e.g using `fetch`)
   const [sendCodeState, sendCodeAction] = useFormState(sendCode, { error: null });
   const [signInState, signInAction] = useFormState(signIn, { error: null });
 
