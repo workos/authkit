@@ -50,3 +50,4 @@ You will also need to create an Single Sign-On connection in the WorkOS dashboar
 - [Verify email](./src/app/using-your-own-ui/verify-email/page.tsx)
 - [Reset password](./src/app/using-your-own-ui/reset-password/page.tsx)
 - [Users table](./src/app/using-your-own-ui/users-table/page.tsx)
+- [Update user](./src/app/using-your-own-ui/update-user/page.tsx)

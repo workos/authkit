@@ -48,6 +48,9 @@ export default function UsingYourOwnUi() {
         <li>
           <Link href="/using-your-own-ui/users-table">Users table</Link>
         </li>
+        <li>
+          <Link href="/using-your-own-ui/update-user">Update user</Link>
+        </li>
       </ul>
     </main>
   );
