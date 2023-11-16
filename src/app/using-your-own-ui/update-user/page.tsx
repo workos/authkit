@@ -4,6 +4,11 @@ import { useFormState } from 'react-dom';
 import { getUser, updateUser } from './update-user';
 
 export default function UpdateUser() {
+  // This example uses Next.js server actions to call functions on the server side.
+  //
+  // If your application is a single page app (SPA), you will need to:
+  // - handle the form submission in `<form onSubmit>`
+  // - make an API call to your backend (e.g using `fetch`)
   const [getUserState, getUserAction] = useFormState(getUser, { error: null });
   const [updateUserState, updateUserAction] = useFormState(updateUser, { error: null });
 
