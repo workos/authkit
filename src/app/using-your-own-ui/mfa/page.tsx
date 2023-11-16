@@ -5,6 +5,11 @@ import { signIn, verifyTotp } from './mfa';
 import Image from 'next/image';
 
 export default function Mfa() {
+  // This example uses Next.js server actions to call functions on the server side.
+  //
+  // If your application is a single page app (SPA), you will need to:
+  // - handle the form submission in `<form onSubmit>`
+  // - make an API call to your backend (e.g using `fetch`)
   const [signInState, signInAction] = useFormState(signIn, { error: null });
   const [verifyState, verifyAction] = useFormState(verifyTotp, { error: null });
 
