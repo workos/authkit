@@ -12,7 +12,7 @@ There are two ways to use AuthKit and this repository contains examples for both
 
 - [Using AuthKit's hosted UI](./src/app/using-your-own-ui)
   This is the fastest way to add authentication to your app with AuthKit and WorkOS User Management. In includes a fully themeable hosted UI that handles all of your authentication flows. When you're ready to go to production you can point it to a custom domain (`auth.yourapp.com`) to match your application.
-- [Building your own custom UI](./src/app/using-your-own-ui)
+- [Using your own custom UI](./src/app/using-your-own-ui)
   Use all of the features of AuthKit, but build out the UI yourself in your own codebase by integrating directly with the headless WorkOS User Management APIs. Your authentication UI will be self-hosted in your application.
 
 ## Prerequisites
