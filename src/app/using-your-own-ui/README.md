@@ -8,10 +8,19 @@
 
 ## Setup
 
-Ensure that you have copied the WorkOS environment variables to your application and installed Node SDK.
+- You will need a [WorkOS account](https://dashboard.workos.com/signup)
+- Sign in to your [WorkOS dashboard](https://dashboard.workos.com), navigate to **API Keys** and copy the **Client ID** and the **Secret Key** (API Key).
+- Rename the `.env.local.example` file to `.env.local` and supply your _Client ID_ and _Secret Key_.
 
-```
-```
+  ```bash
+  WORKOS_CLIENT_ID="<your Client ID>"
+  WORKOS_API_KEY="<your Secret Key>"
+  ```
+- Install the WorkOS Node SDK
+
+  ```bash
+  npm install @workos-inc/node
+  ```
 
 For each example, you will need to ensure the applicable authentication method is enabled in your WorkOS dashboard. To do so navigate to **Authentication** and edit the applicable authentication method and ensure it is set to **Enabled**.
 
