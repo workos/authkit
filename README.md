@@ -12,3 +12,12 @@ There are two ways to use AuthKit and this repository contains examples for both
 
 - [Using AuthKit's hosted UI](#using-authkits-hosted-ui)
 - [Building your own custom UI](#building-your-own-custom-ui)
+
+## Prerequisites
+
+- You will need a [WorkOS account](https://dashboard.workos.com/signup)
+- Install the WorkOS Node SDK
+
+  ```bash
+  npm install @workos-inc/node
+  ```
