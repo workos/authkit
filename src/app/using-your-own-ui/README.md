@@ -1,1 +1,1 @@
-# Using your own UI
+# Using AuthKit with your own UI
