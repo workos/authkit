@@ -30,5 +30,5 @@ For the Single Sign-On examples, you will need to create an organization in your
 
 ## Examples
 
-- [Basic authentication](./src/app/using-authkit/basic/page.tsx). How to use AuthKit's hosted UI with any authenitication method (Email + Password, Magic OAuth, Google OAuth, Microsoft OAuth, and Single Sign-On).
-- [With client-side sessions](./src/app/using-authkit/with-session/page.tsx). How to use AuthKit's hosted UI and mangage sessions client-side using JavaScript Web Tokens (JWTs).
+- [Basic authentication](./basic/page.tsx). How to use AuthKit's hosted UI with any authenitication method (Email + Password, Magic OAuth, Google OAuth, Microsoft OAuth, and Single Sign-On).
+- [With client-side sessions](./with-session/page.tsx). How to use AuthKit's hosted UI and mangage sessions client-side using JavaScript Web Tokens (JWTs).
