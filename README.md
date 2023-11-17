@@ -6,22 +6,6 @@
     <br><br><br>
 </p>
 
-## Setup
-
-- You will need a [WorkOS account](https://dashboard.workos.com/signup)
-- Sign in to your [WorkOS dashboard](https://dashboard.workos.com), navigate to **API Keys** and copy the **Client ID** and the **Secret Key** (API Key).
-- Rename the `.env.local.example` file to `.env.local` and supply your _Client ID_ and _Secret Key_.
-
-  ```bash
-  WORKOS_CLIENT_ID="<your Client ID>"
-  WORKOS_API_KEY="<your Secret Key>"
-  ```
-- Install the WorkOS Node SDK
-
-  ```bash
-  npm install @workos-inc/node
-  ```
-
 ## Examples
 
 There are two ways to use AuthKit and this repository contains examples for both:
