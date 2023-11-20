@@ -18,8 +18,17 @@ There are two ways to use AuthKit and this repository contains examples for both
 ## Prerequisites
 
 - You will need a [WorkOS account](https://dashboard.workos.com/signup)
-- Install the WorkOS Node SDK
+- Sign in to your [WorkOS dashboard](https://dashboard.workos.com), navigate to **API Keys** and copy the **Client ID** and the **Secret Key** (API Key).
+- Rename the `.env.local.example` file to `.env.local` and supply your _Client ID_ and _Secret Key_.
 
   ```bash
-  npm install @workos-inc/node
+  WORKOS_CLIENT_ID="<your Client ID>"
+  WORKOS_API_KEY="<your Secret Key>"
   ```
+
+- In your [WorkOS dashboard](https://dashboard.workos.com), navigate to **Redirects** and add the following redirects so each example is able to redirect correctly:
+  - http://localhost:3000/using-your-own-ui/sign-in/google-oauth/callback
+  - http://localhost:3000/using-your-own-ui/sign-in/microsoft-oauth/callback
+  - http://localhost:3000/using-your-own-ui/sign-in/sso/callback
+  - http://localhost:3000/using-hosted-authkit/basic/callback
+  - http://localhost:3000/using-hosted-authkit/with-session/callback
