@@ -17,7 +17,7 @@ In order to test Single Sign-On, you will need to create an organization in your
 ## Examples
 
 - [Basic authentication](./basic/page.tsx). How to use AuthKit's hosted UI with any authenitication method (Email + Password, Magic Auth, Google OAuth, Microsoft OAuth, and Single Sign-On).
-- [With client-side sessions](./with-session/page.tsx). How to use AuthKit's hosted UI and mangage sessions client-side using JavaScript Web Tokens (JWTs).
+- [With client-side sessions](./with-session/page.tsx). How to use AuthKit's hosted UI and manage sessions client-side using JavaScript Web Tokens (JWTs).
 
 For the example with session, you will need to add a JWT secret as an environment variable. It can be any random string for testing locally, but as a best practice let's generate a secret key from the command line using the node crypto module:
 
