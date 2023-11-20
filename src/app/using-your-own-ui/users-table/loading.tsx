@@ -13,7 +13,7 @@ export default function Loading() {
           </tr>
         </thead>
         <tbody>
-          {Array.from({ length: 5 }, (_, i) => (
+          {Array.from({ length: 3 }, (_, i) => (
             <tr key={i}>
               <td>…</td>
               <td>…</td>

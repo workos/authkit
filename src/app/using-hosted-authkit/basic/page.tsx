@@ -28,11 +28,7 @@ export default function Basic({
     <main>
       <h1>Using hosted AuthKit</h1>
       <h2>Basic example</h2>
-
-      <form>
-        <a href={authKitUrl}>Sign-in with AuthKit</a>
-      </form>
-
+      <a href={authKitUrl}>Sign-in with AuthKit</a>
       <pre>{JSON.stringify(result, null, 2)}</pre>
     </main>
   );

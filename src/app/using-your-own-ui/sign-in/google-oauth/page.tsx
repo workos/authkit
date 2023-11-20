@@ -28,11 +28,7 @@ export default function SignInWithGoogleOAuth({
     <main>
       <h1>Sign-in</h1>
       <h2>Google OAuth</h2>
-
-      <form>
-        <a href={googleOAuthUrl}>Continue with Google</a>
-      </form>
-
+      <a href={googleOAuthUrl}>Continue with Google</a>
       <pre>{JSON.stringify(result, null, 2)}</pre>
     </main>
   );

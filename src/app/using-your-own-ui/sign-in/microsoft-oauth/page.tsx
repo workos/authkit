@@ -28,11 +28,7 @@ export default function SignInWithMicrosoftOAuth({
     <main>
       <h1>Sign-in</h1>
       <h2>Microsoft OAuth</h2>
-
-      <form>
-        <a href={microsoftOAuthUrl}>Continue with Microsoft</a>
-      </form>
-
+      <a href={microsoftOAuthUrl}>Continue with Microsoft</a>
       <pre>{JSON.stringify(result, null, 2)}</pre>
     </main>
   );

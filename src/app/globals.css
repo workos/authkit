@@ -7,6 +7,14 @@ body {
   font-size: 20px;
 }
 
+a {
+  color: black;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  text-decoration-color: #888;
+}
+
+/* back link */
 body > a {
   position: fixed;
   top: 12px;
@@ -20,24 +28,48 @@ main {
   justify-content: center;
   min-height: 100vh;
   box-sizing: border-box;
-}
-
-label {
-  font-weight: bold;
+  padding-top: 48px;
 }
 
 h1 {
   text-align: center;
-  margin: auto 0 40px 0;
+  margin: 0;
+  margin-top: auto;
+  margin-bottom: 24px;
+}
+h1:has(+ h2) {
+  margin-bottom: 8px;
 }
 
 h2 {
   text-align: center;
-  margin: -30px 0 40px 0;
+  margin: 0;
+  margin-bottom: 32px;
+}
+
+h2:has(+ ul) {
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+main > form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  gap: 24px;
+  margin-bottom: auto;
+}
+
+/* field (label + input) */
+form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 label {
   font-size: 16px;
+  font-weight: bold;
 }
 
 input {
@@ -52,7 +84,7 @@ input {
 }
 
 button,
-form > a {
+:where(main, form) > a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,23 +102,13 @@ form > a {
   cursor: pointer;
   text-decoration: none;
 }
-
-button:active {
+button:active,
+:where(main, form) > a:active {
   background-color: #333;
 }
-
-main > form {
-  display: flex;
-  flex-direction: column;
+main > a {
   width: 400px;
-  gap: 24px;
   margin-bottom: auto;
-}
-
-form > div {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
 }
 
 pre {
@@ -106,32 +128,31 @@ pre {
   border-top: 1px solid #eee;
 }
 
+/* lists for index pages */
 ul {
   text-align: center;
   list-style-type: none;
-  margin-top: 0;
+  margin: 0;
   padding-left: 0;
 }
 
-h2 + ul {
-  margin-top: -24px;
-  margin-bottom: 80px;
+h2 + ul:not(:last-child) {
+  margin-bottom: 36px;
 }
+
 h1 + ul:last-child,
 h2 + ul:last-child {
   margin-bottom: auto;
-  padding-bottom: 10vh;
+  padding-bottom: 48px;
 }
 
 li {
   margin: 8px 0;
 }
 
-a {
-  color: black;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-  text-decoration-color: #888;
+/* table for users table page */
+main:has(table) h1 {
+  margin-top: 0;
 }
 
 table {

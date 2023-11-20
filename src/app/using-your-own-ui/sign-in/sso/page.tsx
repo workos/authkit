@@ -28,11 +28,7 @@ export default function SignInWithSSO({
     <main>
       <h1>Sign-in</h1>
       <h2>Single Sign-On</h2>
-
-      <form>
-        <a href={ssoUrl}>Continue with SSO</a>
-      </form>
-
+      <a href={ssoUrl}>Continue with SSO</a>
       <pre>{JSON.stringify(result, null, 2)}</pre>
     </main>
   );

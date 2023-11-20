@@ -43,9 +43,7 @@ export default async function WithSession() {
         <>
           <h2>Sign-in</h2>
           <p>Sign-in to view your account details</p>
-          <form>
-            <a href={authKitUrl}>Sign-in</a>
-          </form>
+          <a href={authKitUrl}>Sign-in</a>
         </>
       )}
 
