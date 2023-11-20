@@ -25,8 +25,18 @@ There are two ways to use AuthKit and this repository contains examples for both
   WORKOS_API_KEY="<your Secret Key>"
   ```
 - In your [WorkOS dashboard](https://dashboard.workos.com), navigate to **Redirects** and add the following redirects so each example is able to redirect correctly:
-  - `http://localhost:3000/using-your-own-ui/sign-in/google-oauth/callback`
-  - `http://localhost:3000/using-your-own-ui/sign-in/microsoft-oauth/callback`
-  - `http://localhost:3000/using-your-own-ui/sign-in/sso/callback`
-  - `http://localhost:3000/using-hosted-authkit/basic/callback`
-  - `http://localhost:3000/using-hosted-authkit/with-session/callback`
+  ```bash
+  http://localhost:3000/using-your-own-ui/sign-in/google-oauth/callback
+  ```
+  ```bash
+  http://localhost:3000/using-your-own-ui/sign-in/microsoft-oauth/callback
+  ```
+  ```bash
+  http://localhost:3000/using-your-own-ui/sign-in/sso/callback
+  ```
+  ```bash
+  http://localhost:3000/using-hosted-authkit/basic/callback
+  ```
+  ```bash
+  http://localhost:3000/using-hosted-authkit/with-session/callback
+  ```
