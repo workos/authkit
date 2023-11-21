@@ -32,7 +32,7 @@ WORKOS_API_KEY="<your Secret Key>"
 
 ### Redirects
 
-In your [WorkOS dashboard](https://dashboard.workos.com), navigate to **Redirects** and add the following redirects so each example is able to redirect correctly:
+In your [WorkOS dashboard](https://dashboard.workos.com), navigate to **Redirects** and add the following urls:
 
 ```bash
 http://localhost:3000/using-your-own-ui/sign-in/google-oauth/callback
