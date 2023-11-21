@@ -30,7 +30,7 @@ WORKOS_CLIENT_ID="<your Client ID>"
 WORKOS_API_KEY="<your Secret Key>"
 ```
 
-### Set up redirects
+### Redirects
 
 In your [WorkOS dashboard](https://dashboard.workos.com), navigate to **Redirects** and add the following redirects so each example is able to redirect correctly:
 
