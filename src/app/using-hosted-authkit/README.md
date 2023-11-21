@@ -8,7 +8,7 @@
 
 ## Setup
 
-First, make sure you have set up the [environment variables](/#environment-variables) and [redirects](/#redirects).
+First, ensure you have set up the [environment variables](/#environment-variables) and [redirects](/#redirects).
 
 For each example, you will need to ensure the applicable authentication method is enabled in your WorkOS dashboard. To do so navigate to **Authentication** and edit the applicable authentication method and ensure it is set to **Enabled**.
 
