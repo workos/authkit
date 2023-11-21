@@ -17,26 +17,39 @@ There are two ways to use AuthKit and this repository contains examples for both
 
 ## Prerequisites
 
-- You will need a [WorkOS account](https://dashboard.workos.com/signup)
-- Sign in to your [WorkOS dashboard](https://dashboard.workos.com), navigate to **API Keys** and copy the **Client ID** and the **Secret Key** (API Key).
-- Rename the `.env.local.example` file to `.env.local` and supply your _Client ID_ and _Secret Key_.
-  ```bash
-  WORKOS_CLIENT_ID="<your Client ID>"
-  WORKOS_API_KEY="<your Secret Key>"
-  ```
-- In your [WorkOS dashboard](https://dashboard.workos.com), navigate to **Redirects** and add the following redirects so each example is able to redirect correctly:
-  ```bash
-  http://localhost:3000/using-your-own-ui/sign-in/google-oauth/callback
-  ```
-  ```bash
-  http://localhost:3000/using-your-own-ui/sign-in/microsoft-oauth/callback
-  ```
-  ```bash
-  http://localhost:3000/using-your-own-ui/sign-in/sso/callback
-  ```
-  ```bash
-  http://localhost:3000/using-hosted-authkit/basic/callback
-  ```
-  ```bash
-  http://localhost:3000/using-hosted-authkit/with-session/callback
-  ```
+You will need a [WorkOS account](https://dashboard.workos.com/signup).
+
+### Environment variables
+
+Sign in to your [WorkOS dashboard](https://dashboard.workos.com), navigate to **API Keys** and copy the **Client ID** and the **Secret Key** (API Key).
+
+Rename the `.env.local.example` file to `.env.local` and supply your _Client ID_ and _Secret Key_.
+
+```bash
+WORKOS_CLIENT_ID="<your Client ID>"
+WORKOS_API_KEY="<your Secret Key>"
+```
+
+### Set up redirects
+
+In your [WorkOS dashboard](https://dashboard.workos.com), navigate to **Redirects** and add the following redirects so each example is able to redirect correctly:
+
+```bash
+http://localhost:3000/using-your-own-ui/sign-in/google-oauth/callback
+```
+
+```bash
+http://localhost:3000/using-your-own-ui/sign-in/microsoft-oauth/callback
+```
+
+```bash
+http://localhost:3000/using-your-own-ui/sign-in/sso/callback
+```
+
+```bash
+http://localhost:3000/using-hosted-authkit/basic/callback
+```
+
+```bash
+http://localhost:3000/using-hosted-authkit/with-session/callback
+```
