@@ -24,12 +24,12 @@ export default function SignUpWithMagicAuth() {
 
         <div>
           <label htmlFor="firstName">First Name</label>
-          <input type="firstName" name="firstName" id="firstName" />
+          <input type="text" name="firstName" id="firstName" />
         </div>
 
         <div>
           <label htmlFor="lastName">Last Name</label>
-          <input type="lastName" name="lastName" id="lastName" />
+          <input type="text" name="lastName" id="lastName" />
         </div>
 
         <button type="submit">Sign-up</button>
