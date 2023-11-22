@@ -1,4 +1,4 @@
-import WorkOS from '@workos-inc/node';
+import { WorkOS } from '@workos-inc/node';
 import { getUser, signOut } from './auth';
 
 // This example uses Next.js with React Server Components.

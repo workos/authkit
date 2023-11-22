@@ -1,4 +1,4 @@
-import WorkOS from '@workos-inc/node';
+import { WorkOS } from '@workos-inc/node';
 import { redirect } from 'next/navigation';
 
 // This is a Next.js Route Handler.

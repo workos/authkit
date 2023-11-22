@@ -10,7 +10,7 @@
 // In a real application, you should pay attention to which errors make it
 // to the client for security reasons.
 
-import WorkOS from '@workos-inc/node';
+import { WorkOS } from '@workos-inc/node';
 import type { AuthenticationResponse } from '@workos-inc/node';
 import type { Factor, Challenge } from '@workos-inc/node/lib/mfa/interfaces';
 

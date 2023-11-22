@@ -1,4 +1,4 @@
-import WorkOS from '@workos-inc/node';
+import { WorkOS } from '@workos-inc/node';
 
 // This example uses Next.js with React Server Components.
 // Because this page is an RSC, the code stays on the server, which allows

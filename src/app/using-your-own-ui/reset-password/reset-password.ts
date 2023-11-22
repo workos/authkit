@@ -10,7 +10,7 @@
 // In a real application, you should pay attention to which errors make it
 // to the client for security reasons.
 
-import WorkOS from '@workos-inc/node';
+import { WorkOS } from '@workos-inc/node';
 
 const workos = new WorkOS(process.env.WORKOS_API_KEY);
 

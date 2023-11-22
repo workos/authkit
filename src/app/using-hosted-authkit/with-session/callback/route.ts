@@ -1,4 +1,4 @@
-import WorkOS from '@workos-inc/node';
+import { WorkOS } from '@workos-inc/node';
 import { NextResponse } from 'next/server';
 import { SignJWT } from 'jose';
 import { getJwtSecretKey } from '../auth';

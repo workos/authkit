@@ -1,4 +1,4 @@
-import WorkOS from '@workos-inc/node';
+import { WorkOS } from '@workos-inc/node';
 import type { User } from '@workos-inc/node';
 import Link from 'next/link';
 import { deleteUser } from './users-table';
