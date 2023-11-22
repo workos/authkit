@@ -46,7 +46,16 @@ export default function VerifyEmail() {
       <form action={verifyEmailAction}>
         <div>
           <label htmlFor="code">Enter code from the email</label>
-          <input type="text" name="code" id="code" autoFocus required />
+          <input
+            type="text"
+            name="code"
+            id="code"
+            inputMode="numeric"
+            autoComplete="one-time-code"
+            pattern="^\d{6}$"
+            autoFocus
+            required
+          />
         </div>
 
         <input type="hidden" name="userId" value={sendCodeState.user.id} />

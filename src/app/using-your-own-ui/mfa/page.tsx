@@ -76,7 +76,16 @@ export default function Mfa() {
       <form action={verifyAction}>
         <div>
           <label htmlFor="code">Enter the code from your app</label>
-          <input name="code" id="code" autoFocus required />
+          <input
+            type="text"
+            name="code"
+            id="code"
+            inputMode="numeric"
+            autoComplete="one-time-code"
+            pattern="^\d{6}$"
+            autoFocus
+            required
+          />
         </div>
 
         <input
