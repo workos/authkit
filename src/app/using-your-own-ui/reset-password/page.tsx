@@ -61,6 +61,18 @@ export default function ResetPassword({ searchParams }: { searchParams: { token?
 
         <input type="hidden" name="token" value={token} />
 
+        {'user' in sendResetState && (
+          // We also include the email in a hidden input so that password managers can update the password on the correct account.
+          // https://developer.1password.com/docs/web/compatible-website-design/#password-change-and-reset-forms
+          <input
+            type="text"
+            name="email"
+            value={sendResetState.user.email}
+            autoComplete="username"
+            style={{ display: 'none' }}
+          />
+        )}
+
         <button type="submit">Continue</button>
       </form>
 
