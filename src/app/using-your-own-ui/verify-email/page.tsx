@@ -20,7 +20,15 @@ export default function VerifyEmail() {
         <form action={sendCodeAction}>
           <div>
             <label htmlFor="email">Email</label>
-            <input type="email" name="email" id="email" autoFocus required />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              autoCapitalize="off"
+              autoComplete="username"
+              autoFocus
+              required
+            />
           </div>
 
           <button type="submit">Send code</button>

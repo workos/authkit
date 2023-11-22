@@ -20,7 +20,15 @@ export default function UpdateUser() {
         <form action={getUserAction}>
           <div>
             <label htmlFor="email">Email</label>
-            <input type="email" name="email" id="email" autoFocus required />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              autoCapitalize="off"
+              autoComplete="username"
+              autoFocus
+              required
+            />
           </div>
 
           <button type="submit">Continue</button>
@@ -47,6 +55,7 @@ export default function UpdateUser() {
             type="firstName"
             name="firstName"
             id="firstName"
+            autoComplete="given-name"
             defaultValue={getUserState.user.firstName ?? ''}
             autoFocus
           />
@@ -58,6 +67,7 @@ export default function UpdateUser() {
             type="lastName"
             name="lastName"
             id="lastName"
+            autoComplete="family-name"
             defaultValue={getUserState.user.lastName ?? ''}
           />
         </div>
