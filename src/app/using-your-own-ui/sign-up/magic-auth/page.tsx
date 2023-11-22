@@ -19,17 +19,25 @@ export default function SignUpWithMagicAuth() {
       <form action={signUpAction}>
         <div>
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" autoFocus required />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            autoCapitalize="off"
+            autoComplete="username"
+            autoFocus
+            required
+          />
         </div>
 
         <div>
           <label htmlFor="firstName">First Name</label>
-          <input type="text" name="firstName" id="firstName" />
+          <input type="text" name="firstName" id="firstName" autoComplete="given-name" />
         </div>
 
         <div>
           <label htmlFor="lastName">Last Name</label>
-          <input type="text" name="lastName" id="lastName" />
+          <input type="text" name="lastName" id="lastName" autoComplete="family-name" />
         </div>
 
         <button type="submit">Sign-up</button>

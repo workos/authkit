@@ -19,12 +19,27 @@ export default function SignInWithEmailPassword() {
       <form action={signInAction}>
         <div>
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" autoFocus required />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            autoCapitalize="off"
+            autoComplete="username"
+            autoFocus
+            required
+          />
         </div>
 
         <div>
           <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" required />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            autoCapitalize="off"
+            autoComplete="current-password"
+            required
+          />
         </div>
 
         <button type="submit">Sign-in</button>
