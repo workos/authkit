@@ -17,7 +17,7 @@ const workos = new WorkOS(process.env.WORKOS_API_KEY);
 export async function sendReset(prevState: any, formData: FormData) {
   try {
     return await workos.users.sendPasswordResetEmail({
-      email: formData.get('email') as string,
+      email: String(formData.get('email')),
       passwordResetUrl: 'http://localhost:3000/using-your-own-ui/reset-password',
     });
   } catch (error) {
@@ -28,8 +28,8 @@ export async function sendReset(prevState: any, formData: FormData) {
 export async function resetPassword(prevState: any, formData: FormData) {
   try {
     return await workos.users.resetPassword({
-      newPassword: formData.get('newPassword') as string,
-      token: formData.get('token') as string,
+      newPassword: String(formData.get('newPassword')),
+      token: String(formData.get('token')),
     });
   } catch (error) {
     return { error: JSON.parse(JSON.stringify(error)) };

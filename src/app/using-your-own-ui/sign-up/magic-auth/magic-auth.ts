@@ -21,10 +21,10 @@ export async function signUp(prevState: any, formData: FormData) {
     // and redirect the user to a page where they can enter the code.
     // See the `sign-in/magic-auth` example for more details.
     return await workos.users.createUser({
-      email: formData.get('email') as string,
+      email: String(formData.get('email')),
       password: undefined,
-      firstName: formData.get('firstName') as string,
-      lastName: formData.get('lastName') as string,
+      firstName: String(formData.get('firstName')),
+      lastName: String(formData.get('lastName')),
     });
   } catch (error) {
     return { error: JSON.parse(JSON.stringify(error)) };

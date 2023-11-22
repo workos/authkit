@@ -23,8 +23,8 @@ export async function signIn(prevState: any, formData: FormData): Promise<SignIn
     // and store that token in your DB or use cookies.
     return await workos.users.authenticateWithPassword({
       clientId: process.env.WORKOS_CLIENT_ID || '',
-      email: formData.get('email') as string,
-      password: formData.get('password') as string,
+      email: String(formData.get('email')),
+      password: String(formData.get('password')),
     });
   } catch (error) {
     const err = JSON.parse(JSON.stringify(error));
@@ -66,9 +66,9 @@ export async function verifyTotp(prevState: any, formData: FormData) {
     // and store that token in your DB or use cookies.
     return await workos.users.authenticateWithTotp({
       clientId: process.env.WORKOS_CLIENT_ID || '',
-      authenticationChallengeId: formData.get('authenticationChallengeId') as string,
-      pendingAuthenticationToken: formData.get('pendingAuthenticationToken') as string,
-      code: formData.get('code') as string,
+      authenticationChallengeId: String(formData.get('authenticationChallengeId')),
+      pendingAuthenticationToken: String(formData.get('pendingAuthenticationToken')),
+      code: String(formData.get('code')),
     });
   } catch (error) {
     return { error: JSON.parse(JSON.stringify(error)) };

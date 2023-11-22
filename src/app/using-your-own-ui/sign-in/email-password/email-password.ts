@@ -21,8 +21,8 @@ export async function signIn(prevState: any, formData: FormData) {
     // and store that token in your DB or use cookies.
     return await workos.users.authenticateWithPassword({
       clientId: process.env.WORKOS_CLIENT_ID || '',
-      email: formData.get('email') as string,
-      password: formData.get('password') as string,
+      email: String(formData.get('email')),
+      password: String(formData.get('password')),
     });
   } catch (error) {
     return { error: JSON.parse(JSON.stringify(error)) };
