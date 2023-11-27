@@ -62,7 +62,7 @@ export default function Mfa() {
           <h2>Enroll</h2>
           <p>Scan the QR code</p>
           <Image
-            src={signInState.authenticationFactor.totp!.qrCode}
+            src={signInState.authenticationFactor.totp.qrCode}
             width="160"
             height="160"
             alt="QR code"

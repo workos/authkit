@@ -15,10 +15,10 @@ const workos = new WorkOS(process.env.WORKOS_API_KEY);
 export default async function WithSession() {
   const { isAuthenticated, user } = await getUser();
 
-  const authKitUrl = workos.sso.getAuthorizationURL({
-    clientID: process.env.WORKOS_CLIENT_ID || '',
+  const authKitUrl = workos.userManagement.getAuthorizationUrl({
+    clientId: process.env.WORKOS_CLIENT_ID || '',
     provider: 'authkit',
-    redirectURI: 'http://localhost:3000/using-hosted-authkit/with-session/callback',
+    redirectUri: 'http://localhost:3000/using-hosted-authkit/with-session/callback',
   });
 
   return (

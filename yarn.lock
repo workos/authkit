@@ -243,12 +243,12 @@
   resolved "https://registry.yarnpkg.com/@ungap/structured-clone/-/structured-clone-1.2.0.tgz#756641adb587851b5ccb3e095daf27ae581c8406"
   integrity sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==
 
-"@workos-inc/node@^3.7.1":
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/@workos-inc/node/-/node-3.8.0.tgz#b82070234213c3dc7086adc1c13d411dbba8dfc2"
-  integrity sha512-+1bW6ddJAo+BBlq9ni9c61x28vl0R/ljHe0ZBPq1h1S99JpOARVfEFKM7HQY6qEAu0S2vRfKKoAF2Hh8fH0u8A==
+"@workos-inc/node@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@workos-inc/node/-/node-4.0.0.tgz#c952b0a55345d3acc0daca8bec52b5028f7c7590"
+  integrity sha512-wVAKUS80wKn6GXOy8bp7IN4DZV8Mac8wc6tl5jQhL+DmKPqNGI3Dz0UaVauxz0Ool665DiJ02IQ090mfTb3CCw==
   dependencies:
-    axios "1.4.0"
+    axios "1.6.0"
     pluralize "8.0.0"
 
 acorn-jsx@^5.3.2:
@@ -401,10 +401,10 @@ axe-core@=4.7.0:
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.7.0.tgz#34ba5a48a8b564f67e103f0aa5768d76e15bbbbf"
   integrity sha512-M0JtH+hlOL5pLQwHOLNYZaXuhqmvS8oExsqB1SBYgA4Dk7u/xx+YdGHXaK5pyUfed5mYXdlYiphWq3G8cRi5JQ==
 
-axios@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.4.0.tgz#38a7bf1224cd308de271146038b551d725f0be1f"
-  integrity sha512-S4XCWMEmzvo64T9GfvQDOXgYRDJ/wsSZc7Jvdgx5u1sd0JwsuPLqb3SYmusag+edF6ziyMensPVqLTSc1PiSEA==
+axios@1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.0.tgz#f1e5292f26b2fd5c2e66876adc5b06cdbd7d2102"
+  integrity sha512-EZ1DYihju9pwVB+jg67ogm+Tmqc6JmhamRN6I4Zt8DfZu5lbcQGw3ozH9lFejSJgs/ibaef3A9PMXPLeefFGJg==
   dependencies:
     follow-redirects "^1.15.0"
     form-data "^4.0.0"

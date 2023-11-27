@@ -16,7 +16,7 @@ const workos = new WorkOS(process.env.WORKOS_API_KEY);
 
 export async function sendCode(prevState: any, formData: FormData) {
   try {
-    return await workos.users.sendMagicAuthCode({
+    return await workos.userManagement.sendMagicAuthCode({
       email: String(formData.get('email')),
     });
   } catch (error) {
@@ -29,10 +29,10 @@ export async function signIn(prevState: any, formData: FormData) {
     // For the sake of simplicity, we directly return the user here.
     // In a real application, you would probably store the user in a token (JWT)
     // and store that token in your DB or use cookies.
-    return await workos.users.authenticateWithMagicAuth({
+    return await workos.userManagement.authenticateWithMagicAuth({
       clientId: process.env.WORKOS_CLIENT_ID || '',
       code: String(formData.get('code')),
-      userId: String(formData.get('userId')),
+      email: String(formData.get('email')),
     });
   } catch (error) {
     return { error: JSON.parse(JSON.stringify(error)) };

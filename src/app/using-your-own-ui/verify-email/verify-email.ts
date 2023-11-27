@@ -11,14 +11,15 @@
 // to the client for security reasons.
 
 import { WorkOS } from '@workos-inc/node';
+import { revalidatePath } from 'next/cache';
 
 const workos = new WorkOS(process.env.WORKOS_API_KEY);
 
 export async function sendCode(prevState: any, formData: FormData) {
   try {
-    const users = await workos.users.listUsers({ email: String(formData.get('email')) });
+    const users = await workos.userManagement.listUsers({ email: String(formData.get('email')) });
     const user = users.data[0];
-    return await workos.users.sendVerificationEmail({ userId: user.id });
+    return await workos.userManagement.sendVerificationEmail({ userId: user.id });
   } catch (error) {
     return { error: JSON.parse(JSON.stringify(error)) };
   }
@@ -26,10 +27,12 @@ export async function sendCode(prevState: any, formData: FormData) {
 
 export async function verifyEmail(prevState: any, formData: FormData) {
   try {
-    return await workos.users.verifyEmailCode({
+    const response = await workos.userManagement.verifyEmail({
       userId: String(formData.get('userId')),
       code: String(formData.get('code')),
     });
+    revalidatePath('/users-table');
+    return response;
   } catch (error) {
     return { error: JSON.parse(JSON.stringify(error)) };
   }

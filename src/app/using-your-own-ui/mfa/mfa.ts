@@ -11,8 +11,6 @@
 // to the client for security reasons.
 
 import { WorkOS } from '@workos-inc/node';
-import type { AuthenticationResponse } from '@workos-inc/node';
-import type { Factor, Challenge } from '@workos-inc/node/lib/mfa/interfaces';
 
 const workos = new WorkOS(process.env.WORKOS_API_KEY);
 
@@ -21,7 +19,7 @@ export async function signIn(prevState: any, formData: FormData): Promise<SignIn
     // For the sake of simplicity, we directly return the user here.
     // In a real application, you would probably store the user in a token (JWT)
     // and store that token in your DB or use cookies.
-    return await workos.users.authenticateWithPassword({
+    return await workos.userManagement.authenticateWithPassword({
       clientId: process.env.WORKOS_CLIENT_ID || '',
       email: String(formData.get('email')),
       password: String(formData.get('password')),
@@ -30,14 +28,13 @@ export async function signIn(prevState: any, formData: FormData): Promise<SignIn
     const err = JSON.parse(JSON.stringify(error));
 
     if (err.rawData.code === 'mfa_enrollment') {
-      const { authenticationFactor, authenticationChallenge } = await workos.users.enrollAuthFactor(
-        {
+      const { authenticationFactor, authenticationChallenge } =
+        await workos.userManagement.enrollAuthFactor({
           userId: err.rawData.user.id,
           type: 'totp',
           totpIssuer: 'WorkOS',
           totpUser: err.rawData.user.email,
-        }
-      );
+        });
       return {
         authenticationFactor,
         authenticationChallenge,
@@ -64,7 +61,7 @@ export async function verifyTotp(prevState: any, formData: FormData) {
     // For the sake of simplicity, we directly return the user here.
     // In a real application, you would probably store the user in a token (JWT)
     // and store that token in your DB or use cookies.
-    return await workos.users.authenticateWithTotp({
+    return await workos.userManagement.authenticateWithTotp({
       clientId: process.env.WORKOS_CLIENT_ID || '',
       authenticationChallengeId: String(formData.get('authenticationChallengeId')),
       pendingAuthenticationToken: String(formData.get('pendingAuthenticationToken')),
@@ -75,11 +72,16 @@ export async function verifyTotp(prevState: any, formData: FormData) {
   }
 }
 
+type UnpackPromise<T> = T extends Promise<infer U> ? U : T;
+type AuthenticateResponse = UnpackPromise<
+  ReturnType<typeof workos.userManagement.authenticateWithPassword>
+>;
+type EnrollResponse = UnpackPromise<ReturnType<typeof workos.userManagement.enrollAuthFactor>>;
 type SignInResponse =
-  | AuthenticationResponse
+  | AuthenticateResponse
   | {
-      authenticationFactor?: Factor;
-      authenticationChallenge: Challenge;
+      authenticationFactor?: EnrollResponse['authenticationFactor'];
+      authenticationChallenge: EnrollResponse['authenticationChallenge'];
       pendingAuthenticationToken: string;
     }
   | { error: any };

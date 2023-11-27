@@ -16,10 +16,10 @@ export default function SignInWithMicrosoftOAuth({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const microsoftOAuthUrl = workos.sso.getAuthorizationURL({
-    clientID: process.env.WORKOS_CLIENT_ID || '',
+  const microsoftOAuthUrl = workos.userManagement.getAuthorizationUrl({
+    clientId: process.env.WORKOS_CLIENT_ID || '',
     provider: 'MicrosoftOAuth',
-    redirectURI: 'http://localhost:3000/using-your-own-ui/sign-in/microsoft-oauth/callback',
+    redirectUri: 'http://localhost:3000/using-your-own-ui/sign-in/microsoft-oauth/callback',
   });
 
   const result = JSON.parse(String(searchParams.response ?? '{ "error": null }'));

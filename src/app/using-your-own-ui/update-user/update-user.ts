@@ -12,12 +12,13 @@
 
 import { WorkOS } from '@workos-inc/node';
 import type { User } from '@workos-inc/node';
+import { revalidatePath } from 'next/cache';
 
 const workos = new WorkOS(process.env.WORKOS_API_KEY);
 
 export async function getUser(prevState: any, formData: FormData): Promise<Response> {
   try {
-    const users = await workos.users.listUsers({ email: String(formData.get('email')) });
+    const users = await workos.userManagement.listUsers({ email: String(formData.get('email')) });
     const user = users.data[0];
     return { user };
   } catch (error) {
@@ -27,11 +28,12 @@ export async function getUser(prevState: any, formData: FormData): Promise<Respo
 
 export async function updateUser(prevState: any, formData: FormData): Promise<Response> {
   try {
-    const user = await workos.users.updateUser({
+    const user = await workos.userManagement.updateUser({
       userId: String(formData.get('userId')),
       firstName: String(formData.get('firstName')),
       lastName: String(formData.get('lastName')),
     });
+    revalidatePath('/users-table');
     return { user };
   } catch (error) {
     return { error: JSON.parse(JSON.stringify(error)) };

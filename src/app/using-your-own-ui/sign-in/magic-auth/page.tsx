@@ -1,5 +1,6 @@
 'use client';
 
+import * as React from 'react';
 import { useFormState } from 'react-dom';
 import { sendCode, signIn } from './magic-auth';
 
@@ -11,8 +12,9 @@ export default function SignInWithMagicAuth() {
   // - make an API call to your backend (e.g using `fetch`)
   const [sendCodeState, sendCodeAction] = useFormState(sendCode, { error: null });
   const [signInState, signInAction] = useFormState(signIn, { error: null });
+  const [email, setEmail] = React.useState('');
 
-  if (!('user' in sendCodeState)) {
+  if (sendCodeState?.error === null) {
     return (
       <main key="email">
         <h1>Sign-in</h1>
@@ -29,6 +31,7 @@ export default function SignInWithMagicAuth() {
               autoComplete="username"
               autoFocus
               required
+              onChange={(event) => setEmail(event.target.value)}
             />
           </div>
 
@@ -60,7 +63,8 @@ export default function SignInWithMagicAuth() {
           />
         </div>
 
-        <input type="hidden" name="userId" value={sendCodeState.user.id} />
+        {/* we need the email to authenticate with the code */}
+        <input type="hidden" name="email" value={email} />
 
         <button type="submit">Sign-in</button>
       </form>

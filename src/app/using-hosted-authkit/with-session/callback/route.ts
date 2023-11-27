@@ -16,7 +16,7 @@ export async function GET(request: Request) {
   const code = url.searchParams.get('code') || '';
 
   try {
-    const { user } = await workos.users.authenticateWithCode({
+    const { user } = await workos.userManagement.authenticateWithCode({
       clientId: process.env.WORKOS_CLIENT_ID || '',
       code,
     });

@@ -17,9 +17,7 @@ const workos = new WorkOS(process.env.WORKOS_API_KEY);
 
 export async function deleteUser(formData: FormData) {
   try {
-    await workos.users.deleteUser({
-      userId: String(formData.get('userId')),
-    });
+    await workos.userManagement.deleteUser(String(formData.get('userId')));
     revalidatePath('/users-table');
   } catch (error) {
     console.log(error);

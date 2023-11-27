@@ -16,10 +16,10 @@ export default function Basic({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const authKitUrl = workos.sso.getAuthorizationURL({
-    clientID: process.env.WORKOS_CLIENT_ID || '',
+  const authKitUrl = workos.userManagement.getAuthorizationUrl({
+    clientId: process.env.WORKOS_CLIENT_ID || '',
     provider: 'authkit',
-    redirectURI: 'http://localhost:3000/using-hosted-authkit/basic/callback',
+    redirectUri: 'http://localhost:3000/using-hosted-authkit/basic/callback',
   });
 
   const result = JSON.parse(String(searchParams.response ?? '{ "error": null }'));

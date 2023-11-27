@@ -16,10 +16,10 @@ export default function SignInWithGoogleOAuth({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const googleOAuthUrl = workos.sso.getAuthorizationURL({
-    clientID: process.env.WORKOS_CLIENT_ID || '',
+  const googleOAuthUrl = workos.userManagement.getAuthorizationUrl({
+    clientId: process.env.WORKOS_CLIENT_ID || '',
     provider: 'GoogleOAuth',
-    redirectURI: 'http://localhost:3000/using-your-own-ui/sign-in/google-oauth/callback',
+    redirectUri: 'http://localhost:3000/using-your-own-ui/sign-in/google-oauth/callback',
   });
 
   const result = JSON.parse(String(searchParams.response ?? '{ "error": null }'));

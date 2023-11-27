@@ -3,8 +3,12 @@
 import { useFormState } from 'react-dom';
 import { sendReset, resetPassword } from './reset-password';
 
-export default function ResetPassword({ searchParams }: { searchParams: { token?: string } }) {
-  const { token } = searchParams;
+export default function ResetPassword({
+  searchParams,
+}: {
+  searchParams: { token?: string; email?: string };
+}) {
+  const { token, email } = searchParams;
 
   // This example uses Next.js server actions to call functions on the server side.
   //
@@ -61,13 +65,13 @@ export default function ResetPassword({ searchParams }: { searchParams: { token?
 
         <input type="hidden" name="token" value={token} />
 
-        {'user' in sendResetState && (
+        {email && (
           // We also include the email in a hidden input so that password managers can update the password on the correct account.
           // https://developer.1password.com/docs/web/compatible-website-design/#password-change-and-reset-forms
           <input
             type="text"
             name="email"
-            value={sendResetState.user.email}
+            value={email}
             autoComplete="username"
             style={{ display: 'none' }}
           />

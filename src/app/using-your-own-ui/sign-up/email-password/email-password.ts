@@ -18,7 +18,7 @@ export async function signUp(prevState: any, formData: FormData) {
   try {
     // For the sake of simplicity, we directly return the user here.
     // In a real application, you would probably redirect the user to sign-in.
-    return await workos.users.createUser({
+    return await workos.userManagement.createUser({
       email: String(formData.get('email')),
       password: String(formData.get('password')),
       firstName: String(formData.get('firstName')),

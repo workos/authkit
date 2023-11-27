@@ -16,10 +16,10 @@ export default function SignInWithSSO({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const ssoUrl = workos.sso.getAuthorizationURL({
-    clientID: process.env.WORKOS_CLIENT_ID || '',
-    organization: process.env.SSO_ENABLED_ORGANIZATION_ID || '',
-    redirectURI: 'http://localhost:3000/using-your-own-ui/sign-in/sso/callback',
+  const ssoUrl = workos.userManagement.getAuthorizationUrl({
+    clientId: process.env.WORKOS_CLIENT_ID || '',
+    organizationId: process.env.SSO_ENABLED_ORGANIZATION_ID || '',
+    redirectUri: 'http://localhost:3000/using-your-own-ui/sign-in/sso/callback',
   });
 
   const result = JSON.parse(String(searchParams.response ?? '{ "error": null }'));

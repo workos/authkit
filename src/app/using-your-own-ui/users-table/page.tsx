@@ -19,7 +19,7 @@ export default async function UsersTable({
 }: {
   searchParams: { before?: string; after?: string };
 }) {
-  const users = await workos.users.listUsers({ limit: 5, ...searchParams });
+  const users = await workos.userManagement.listUsers({ limit: 5, ...searchParams });
   const { before, after } = users.listMetadata;
 
   return (

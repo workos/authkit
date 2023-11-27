@@ -20,7 +20,7 @@ export async function signUp(prevState: any, formData: FormData) {
     // In a real application, you would probably send a magic code email
     // and redirect the user to a page where they can enter the code.
     // See the `sign-in/magic-auth` example for more details.
-    return await workos.users.createUser({
+    return await workos.userManagement.createUser({
       email: String(formData.get('email')),
       password: undefined,
       firstName: String(formData.get('firstName')),
