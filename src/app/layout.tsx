@@ -7,7 +7,7 @@ import BackLink from './back-link';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'AuthKit examples',
+  title: 'AuthKit',
   description: 'A collection of examples for AuthKit',
 };
 
