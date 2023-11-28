@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/workos/authkit/assets/896475/c11765ce-cf6c-4157-87fd-c7776b509657" width="72" height="72" />
+    <img src="https://github.com/workos/authkit/assets/896475/90c2cf08-7f61-4123-b96a-bd139cd7f988" width="72" height="72" />
     <h1 align="center">AuthKit</h1>
     <p align="center">How to use AuthKit's hosted UI or build your own frontend with the headless User Management APIs</p>
     <p align="center"><a href="https://workos.com/docs/user-management">Explore the docs ↗</a></strong></p>
