@@ -41,6 +41,8 @@ export async function GET(request: Request) {
       value: token,
       httpOnly: true,
       path: '/',
+      secure: true,
+      sameSite: 'lax',
     });
 
     return response;
