@@ -24,6 +24,9 @@ export default function UsingYourOwnUi() {
           <Link href="/using-your-own-ui/sign-in/magic-auth">Magic Auth</Link>
         </li>
         <li>
+          <Link href="/using-your-own-ui/sign-in/github-oauth">GitHub OAuth</Link>
+        </li>
+        <li>
           <Link href="/using-your-own-ui/sign-in/google-oauth">Google OAuth</Link>
         </li>
         <li>
