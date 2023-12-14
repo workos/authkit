@@ -43,6 +43,10 @@ http://localhost:3000/using-your-own-ui/sign-in/microsoft-oauth/callback
 ```
 
 ```bash
+http://localhost:3000/using-your-own-ui/sign-in/github-oauth/callback
+```
+
+```bash
 http://localhost:3000/using-your-own-ui/sign-in/sso/callback
 ```
 
