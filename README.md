@@ -5,12 +5,8 @@
     <p align="center"><a href="https://workos.com/docs/user-management">Explore the docs ↗</a></strong></p>    
 </p>
 
-## Screenshots
-
-<p align="center">
-  <img alt="Screenshot of hosted UI AuthKit in dark mode" src="https://github.com/workos/authkit/assets/108872335/e6e44a30-3ec6-4385-95bd-07709e20e10a" width="45%">
-  &nbsp; &nbsp; &nbsp; &nbsp;
-  <img alt="Screenshot of hosted UI AuthKit in light mode" src="https://github.com/workos/authkit/assets/108872335/08ea6ecb-6749-4b31-89d4-49f59321aff7" width="45%">
+<p align="center">  
+  <img alt="Screenshot of hosted UI AuthKit in light mode" src="https://github.com/workos/authkit/assets/108872335/200931ff-51fc-4825-894d-696dd17b88f6">
 </p>
 
 ## Examples
