@@ -9,9 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@workos-inc/node": "^4.0.0",
-    "jose": "^5.1.1",
-    "next": "14.0.1",
+    "@workos-inc/authkit-nextjs": "0.4.0",
+    "@workos-inc/node": "^6.7.0",
+    "jose": "^5.2.3",
+    "next": "14.1.4",
     "react": "^18",
     "react-dom": "^18"
   },
@@ -20,7 +21,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "14.0.1",
+    "eslint-config-next": "14.1.4",
     "typescript": "^5"
   }
 }
