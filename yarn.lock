@@ -344,7 +344,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@workos-inc/authkit-nextjs@npm:^0.4.0":
+"@workos-inc/authkit-nextjs@npm:0.4.0":
   version: 0.4.0
   resolution: "@workos-inc/authkit-nextjs@npm:0.4.0"
   dependencies:
@@ -582,7 +582,7 @@ __metadata:
     "@types/node": "npm:^20"
     "@types/react": "npm:^18"
     "@types/react-dom": "npm:^18"
-    "@workos-inc/authkit-nextjs": "npm:^0.4.0"
+    "@workos-inc/authkit-nextjs": "npm:0.4.0"
     "@workos-inc/node": "npm:^6.7.0"
     eslint: "npm:^8"
     eslint-config-next: "npm:14.1.4"
