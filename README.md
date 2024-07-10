@@ -36,7 +36,7 @@ You will need a [WorkOS account](https://dashboard.workos.com/signup).
 3. Configure redirects in your [WorkOS dashboard](https://dashboard.workos.com), navigate to **Redirects** and add the following urls:
 
    ```bash
-    http://localhost:3000/using-your-own-ui/sign-in/google-oauth/callback
+   http://localhost:3000/using-your-own-ui/sign-in/google-oauth/callback
    ```
 
    ```bash
