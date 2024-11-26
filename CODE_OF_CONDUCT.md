@@ -1,4 +1,4 @@
-# Contributor Covenant Code of Conduct
+https://github.com/workos/authkit.git# Contributor Covenant Code of Conduct
 
 ## Our Pledge
 
