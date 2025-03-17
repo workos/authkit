@@ -1,0 +1,67 @@
+name: Coana Guardrail
+
+on: pull_request
+
+jobs:
+  guardrail:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the ${{github.base_ref}} branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{github.base_ref}} # checkout the base branch (usually master/main).
+
+      - name: Fetch the PR branch
+        run: |
+          git fetch origin ${{ github.head_ref }}:${{ github.head_ref }} --depth=1
+
+      - name: Get list of changed files relative to the main/master branch
+        id: changed-files
+        run: |
+          echo "all_changed_files=$(git diff --name-only ${{ github.base_ref }} ${{ github.head_ref }} | tr '\n' ' ')" >> $GITHUB_OUTPUT
+
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+
+      - name: Run Coana on the ${{github.base_ref}} branch
+        run: |
+          npx @coana-tech/cli run . \
+            --guardrail-mode \
+            --api-key ${{ secrets.COANA_API_KEY || 'api-key-unavailable' }} \
+            -o /tmp/main-branch \
+            --changed-files ${{ steps.changed-files.outputs.all_changed_files }} \
+            --lightweight-reachability \
+
+      # Reset file permissions.
+      # This is necessary because the Coana CLI may add
+      # new files with root ownership since it's using docker.
+      # These files will not be deleted by the clean step in checkout
+      # if the permissions are not reset.
+      - name: Reset file permissions
+        run: sudo chown -R $USER:$USER .
+
+      - name: Checkout the current branch
+        uses: actions/checkout@v4
+        with:
+          clean: true
+
+      - name: Run Coana on the current branch
+        run: |
+          npx @coana-tech/cli run . \
+            --guardrail-mode \
+            --api-key ${{ secrets.COANA_API_KEY || 'api-key-unavailable' }} \
+            -o /tmp/current-branch \
+            --changed-files ${{ steps.changed-files.outputs.all_changed_files }} \
+            --lightweight-reachability \
+
+      - name: Run Report Comparison
+        run: |
+          npx @coana-tech/cli compare-reports \
+            --api-key ${{ secrets.COANA_API_KEY || 'api-key-unavailable' }} \
+            /tmp/main-branch/coana-report.json \
+            /tmp/current-branch/coana-report.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
