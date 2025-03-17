@@ -2,24 +2,27 @@ name: Coana Vulnerability Analysis
 
 on:
   schedule:
-    # every day at 12 AM
-    - cron: '0 0 * * *'
+    - cron: "0 3 * * *" # every day at 3 AM
   workflow_dispatch:
     inputs:
       tags:
-        description: 'Manually run vulnerability analysis'
+        description: "Manually run vulnerability analysis"
+      # Required by the return-dispatch action
+      distinct_id:
 
 jobs:
   coana-vulnerability-analysis:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
       - name: Run Coana CLI
         id: coana-cli
-        run: |
-          npx @coana-tech/cli run . \
-            --api-key ${{ secrets.COANA_API_KEY }} \
-            --repo-url https://github.com/${{github.repository}}
+        uses: docker://coana/coana:latest
+        with:
+          args: |
+            coana run . \
+              --api-key ${{ secrets.COANA_API_KEY }} \
+              --repo-url https://github.com/${{github.repository}}
