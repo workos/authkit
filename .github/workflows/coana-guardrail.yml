@@ -14,7 +14,7 @@ jobs:
 
       - name: Fetch the PR branch
         run: |
-          git fetch origin ${{ github.head_ref }}:${{ github.head_ref }} --depth=1
+          git fetch ${{ github.event.pull_request.head.repo.clone_url }} ${{ github.head_ref }}:${{ github.head_ref }} --depth=1
 
       - name: Get list of changed files relative to the main/master branch
         id: changed-files
