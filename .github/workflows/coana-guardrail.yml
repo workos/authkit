@@ -39,7 +39,7 @@ jobs:
       - name: Checkout the current branch
         uses: actions/checkout@v4
         with:
-          clean: true
+          clean: false
  
       - name: Run Coana on the current branch
         run: |
