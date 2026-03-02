@@ -11,11 +11,15 @@
 // to the client for security reasons.
 
 import { WorkOS } from '@workos-inc/node';
+import { consumeInvitationToken } from '@/lib/invitation-token';
 
 const workos = new WorkOS(process.env.WORKOS_API_KEY);
 
 export async function signIn(prevState: any, formData: FormData) {
   try {
+    // Check for a stored invitation token (persisted across auth flows like password reset)
+    const invitationToken = await consumeInvitationToken();
+
     // For the sake of simplicity, we directly return the user here.
     // In a real application, you would probably store the user in a token (JWT)
     // and store that token in your DB or use cookies.
@@ -23,6 +27,7 @@ export async function signIn(prevState: any, formData: FormData) {
       clientId: process.env.WORKOS_CLIENT_ID || '',
       email: String(formData.get('email')),
       password: String(formData.get('password')),
+      invitationToken,
     });
   } catch (error) {
     return { error: JSON.parse(JSON.stringify(error)) };
