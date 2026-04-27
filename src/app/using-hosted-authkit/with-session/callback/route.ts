@@ -2,6 +2,7 @@ import { WorkOS } from '@workos-inc/node';
 import { NextResponse } from 'next/server';
 import { SignJWT } from 'jose';
 import { getJwtSecretKey } from '../auth';
+import { consumeInvitationToken } from '@/lib/invitation-token';
 
 // This is a Next.js Route Handler.
 //
@@ -15,10 +16,14 @@ export async function GET(request: Request) {
   const url = new URL(request.url);
   const code = url.searchParams.get('code') || '';
 
+  // Check for a stored invitation token (persisted across auth flows like password reset)
+  const invitationToken = await consumeInvitationToken();
+
   try {
     const { user } = await workos.userManagement.authenticateWithCode({
       clientId: process.env.WORKOS_CLIENT_ID || '',
       code,
+      invitationToken,
     });
 
     // Create a JWT with the user's information
