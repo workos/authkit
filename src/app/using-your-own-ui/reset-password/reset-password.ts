@@ -16,10 +16,12 @@ const workos = new WorkOS(process.env.WORKOS_API_KEY);
 
 export async function sendReset(prevState: any, formData: FormData) {
   try {
-    const email = String(formData.get('email'));
-    return await workos.userManagement.sendPasswordResetEmail({
-      email,
-      passwordResetUrl: `http://localhost:3000/using-your-own-ui/reset-password?email=${email}`,
+    // `sendPasswordResetEmail` was replaced by `createPasswordReset`. It no longer accepts a
+    // `passwordResetUrl` and no longer emails anything — it mints the token and returns it,
+    // so delivery is now your application's job. Email `passwordResetToken` from your own
+    // sender, or hand the user the returned `passwordResetUrl` to use AuthKit's hosted page.
+    return await workos.userManagement.createPasswordReset({
+      email: String(formData.get('email')),
     });
   } catch (error) {
     return { error: JSON.parse(JSON.stringify(error)) };

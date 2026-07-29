@@ -1,6 +1,6 @@
 'use client';
 
-import { useFormState } from 'react-dom';
+import { useActionState } from 'react';
 import { sendCode, verifyEmail } from './verify-email';
 
 export default function VerifyEmail() {
@@ -9,8 +9,8 @@ export default function VerifyEmail() {
   // If your application is a single page app (SPA), you will need to:
   // - handle the form submission in `<form onSubmit>`
   // - make an API call to your backend (e.g using `fetch`)
-  const [sendCodeState, sendCodeAction] = useFormState(sendCode, { error: null });
-  const [verifyEmailState, verifyEmailAction] = useFormState(verifyEmail, { error: null });
+  const [sendCodeState, sendCodeAction] = useActionState(sendCode, { error: null });
+  const [verifyEmailState, verifyEmailAction] = useActionState(verifyEmail, { error: null });
 
   if (!('user' in sendCodeState)) {
     return (

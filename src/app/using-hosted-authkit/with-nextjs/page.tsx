@@ -1,11 +1,9 @@
-import { getSignInUrl, getUser, signOut } from '@workos-inc/authkit-nextjs';
+import { redirect } from 'next/navigation';
+import { getSignInUrl, signOut, withAuth } from '@workos-inc/authkit-nextjs';
 
 export default async function WithNextjs() {
   // Retrieves the user from the session or returns `null` if no user is signed in
-  const { user } = await getUser();
-
-  // Get the URL to redirect the user to AuthKit to sign in
-  const signInUrl = await getSignInUrl();
+  const { user } = await withAuth();
 
   return (
     <main>
@@ -24,7 +22,16 @@ export default async function WithNextjs() {
           </form>
         </>
       ) : (
-        <a href={signInUrl}>Sign in</a>
+        // `getSignInUrl` sets a PKCE cookie, so it has to run in a server action or
+        // route handler. Cookies can no longer be written during a render in Next.js 16.
+        <form
+          action={async () => {
+            'use server';
+            redirect(await getSignInUrl());
+          }}
+        >
+          <button type="submit">Sign in</button>
+        </form>
       )}
       <pre>{JSON.stringify(user, null, 2)}</pre>
     </main>

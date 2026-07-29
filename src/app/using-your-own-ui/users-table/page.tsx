@@ -17,9 +17,9 @@ const workos = new WorkOS(process.env.WORKOS_API_KEY);
 export default async function UsersTable({
   searchParams,
 }: {
-  searchParams: { before?: string; after?: string };
+  searchParams: Promise<{ before?: string; after?: string }>;
 }) {
-  const users = await workos.userManagement.listUsers({ limit: 5, ...searchParams });
+  const users = await workos.userManagement.listUsers({ limit: 5, ...(await searchParams) });
   const { before, after } = users.listMetadata;
 
   return (

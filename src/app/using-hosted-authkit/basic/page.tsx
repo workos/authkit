@@ -11,10 +11,10 @@ import { WorkOS } from '@workos-inc/node';
 
 const workos = new WorkOS(process.env.WORKOS_API_KEY);
 
-export default function Basic({
+export default async function Basic({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const authKitUrl = workos.userManagement.getAuthorizationUrl({
     clientId: process.env.WORKOS_CLIENT_ID || '',
@@ -22,7 +22,8 @@ export default function Basic({
     redirectUri: 'http://localhost:3000/using-hosted-authkit/basic/callback',
   });
 
-  const result = JSON.parse(String(searchParams.response ?? '{ "error": null }'));
+  const { response } = await searchParams;
+  const result = JSON.parse(String(response ?? '{ "error": null }'));
 
   return (
     <main>

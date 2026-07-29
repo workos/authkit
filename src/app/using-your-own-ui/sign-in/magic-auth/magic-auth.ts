@@ -16,7 +16,7 @@ const workos = new WorkOS(process.env.WORKOS_API_KEY);
 
 export async function sendCode(prevState: any, formData: FormData) {
   try {
-    return await workos.userManagement.sendMagicAuthCode({
+    return await workos.userManagement.createMagicAuth({
       email: String(formData.get('email')),
     });
   } catch (error) {

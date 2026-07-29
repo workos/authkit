@@ -1,6 +1,6 @@
 'use client';
 
-import { useFormState } from 'react-dom';
+import { useActionState } from 'react';
 import { signUp } from './email-password';
 
 export default function SignUpWithEmailPassword() {
@@ -9,7 +9,7 @@ export default function SignUpWithEmailPassword() {
   // If your application is a single page app (SPA), you will need to:
   // - handle the form submission in `<form onSubmit>`
   // - make an API call to your backend (e.g using `fetch`)
-  const [signUpState, signUpAction] = useFormState(signUp, { error: null });
+  const [signUpState, signUpAction] = useActionState(signUp, { error: null });
 
   return (
     <main>
