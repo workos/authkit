@@ -46,9 +46,12 @@ export default function ResetPassword({
           <>
             {/*
               `createPasswordReset` mints the token but does not email it — delivering it is
-              your application's job. A real app would email the link below to the user, which
-              is what proves they actually control the address. We render it here only so the
-              example stays clickable; never surface a reset token to whoever filled in the form.
+              your application's job.
+
+              This example deliberately shows the token, both as the link below and in the raw
+              response, so the flow stays usable locally. A real app must not: emailing the
+              token is what proves the person actually controls the address. Showing it to
+              whoever submitted the form hands an account takeover to anyone who knows an email.
             */}
             <p>
               WorkOS does not send this email for you. In your app, send this link to{' '}
