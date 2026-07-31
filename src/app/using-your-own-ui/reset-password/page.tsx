@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { use, useActionState } from 'react';
 import { sendReset, resetPassword } from './reset-password';
 
@@ -17,7 +16,7 @@ export default function ResetPassword({
   // If your application is a single page app (SPA), you will need to:
   // - handle the form submission in `<form onSubmit>`
   // - make an API call to your backend (e.g using `fetch`)
-  const [sendResetState, sendResetAction] = useActionState(sendReset, { error: null });
+  const [sendResetState, sendResetAction] = useActionState(sendReset, { submitted: false });
   const [resetPasswordState, resetPasswordAction] = useActionState(resetPassword, { error: null });
 
   if (!token) {
@@ -42,34 +41,17 @@ export default function ResetPassword({
           <button type="submit">Send reset instructions</button>
         </form>
 
-        {'passwordResetToken' in sendResetState && (
-          <>
-            {/*
-              `createPasswordReset` mints the token but does not email it — delivering it is
-              your application's job.
-
-              This example deliberately shows the token, both as the link below and in the raw
-              response, so the flow stays usable locally. A real app must not: emailing the
-              token is what proves the person actually controls the address. Showing it to
-              whoever submitted the form hands an account takeover to anyone who knows an email.
-            */}
-            <p>
-              WorkOS does not send this email for you. In your app, send this link to{' '}
-              <strong>{sendResetState.email}</strong> instead of showing it:
-            </p>
-            <p>
-              <Link
-                href={`/using-your-own-ui/reset-password?token=${encodeURIComponent(
-                  sendResetState.passwordResetToken
-                )}&email=${encodeURIComponent(sendResetState.email)}`}
-              >
-                Continue to reset password
-              </Link>
-            </p>
-          </>
+        {/*
+          Intentionally says the same thing either way, and shows no token. The reset link is
+          printed to the server console instead — see `sendReset` for why it must not be
+          rendered here.
+        */}
+        {sendResetState.submitted && (
+          <p>
+            If an account exists for that address, a password reset has been created. This
+            example prints the link to your server console; a real app would email it.
+          </p>
         )}
-
-        <pre>{JSON.stringify(sendResetState, null, 2)}</pre>
       </main>
     );
   }
