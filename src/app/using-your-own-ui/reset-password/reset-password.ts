@@ -30,12 +30,14 @@ export async function sendReset(prevState: any, formData: FormData) {
   try {
     const reset = await workos.userManagement.createPasswordReset({ email });
 
-    console.log(
-      `[example] Password reset for ${reset.email} — in a real app, email this link:\n` +
-        `  http://localhost:3000/using-your-own-ui/reset-password` +
-        `?token=${encodeURIComponent(reset.passwordResetToken)}` +
-        `&email=${encodeURIComponent(reset.email)}`
-    );
+    if (process.env.NODE_ENV === 'development') {
+      console.log(
+        `[example] Password reset for ${reset.email} — in a real app, email this link:\n` +
+          `  http://localhost:3000/using-your-own-ui/reset-password` +
+          `?token=${encodeURIComponent(reset.passwordResetToken)}` +
+          `&email=${encodeURIComponent(reset.email)}`
+      );
+    }
   } catch (error) {
     // Logged, not returned: a distinguishable failure would reveal which addresses have accounts.
     console.error('[example] Could not create a password reset:', error);
