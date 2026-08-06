@@ -14,14 +14,25 @@ import { WorkOS } from '@workos-inc/node';
 
 const workos = new WorkOS(process.env.WORKOS_API_KEY);
 
+// `sendMagicAuthCode` was replaced by `createMagicAuth`. WorkOS still emails the code; what
+// changed is that the new method also *returns* it.
+//
+// Never pass that code back to the caller. Anyone can submit anyone else's address here, so
+// returning it would let a stranger sign in as them. Receiving the email is precisely what
+// proves the person owns the address, so the code must only ever travel that way.
 export async function sendCode(prevState: any, formData: FormData) {
   try {
-    return await workos.userManagement.createMagicAuth({
+    await workos.userManagement.createMagicAuth({
       email: String(formData.get('email')),
     });
   } catch (error) {
-    return { error: JSON.parse(JSON.stringify(error)) };
+    // Logged server-side only: a distinguishable response would reveal which addresses
+    // have accounts.
+    console.error('[example] Could not create a Magic Auth code:', error);
   }
+
+  // Deliberately identical whether or not that address has an account.
+  return { submitted: true };
 }
 
 export async function signIn(prevState: any, formData: FormData) {

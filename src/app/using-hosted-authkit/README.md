@@ -52,5 +52,5 @@ And update the `.env.local` file:
 
 ```bash
 # ...
-JWT_SECRET_KEY="<your JTW secret>"
+JWT_SECRET_KEY="<your JWT secret>"
 ```

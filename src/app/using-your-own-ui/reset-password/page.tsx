@@ -42,14 +42,13 @@ export default function ResetPassword({
         </form>
 
         {/*
-          Intentionally says the same thing either way, and shows no token. The reset link is
-          printed to the server console instead — see `sendReset` for why it must not be
-          rendered here.
+          Intentionally says the same thing either way, and shows no token — see `sendReset`
+          for why the token must never be rendered here.
         */}
         {sendResetState.submitted && (
           <p>
-            If an account exists for that address, a password reset has been created. This
-            example prints the link to your server console; a real app would email it.
+            If an account exists for that address, WorkOS has emailed it a reset link. Opening
+            that link returns here with a token in the URL.
           </p>
         )}
       </main>

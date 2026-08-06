@@ -63,4 +63,4 @@ You will need a [WorkOS account](https://dashboard.workos.com/signup).
    http://localhost:3000/using-hosted-authkit/with-nextjs/callback
    ```
 
-4. Run the example with `npm run dev` or `yarn dev` and navigate to http://localhost:3000
+4. Run the example with `npm run dev` and navigate to http://localhost:3000

@@ -14,16 +14,19 @@ import { WorkOS } from '@workos-inc/node';
 
 const workos = new WorkOS(process.env.WORKOS_API_KEY);
 
-// `sendPasswordResetEmail` was replaced by `createPasswordReset`. It no longer accepts a
-// `passwordResetUrl` and no longer emails anything — it mints the token and returns it, so
-// delivery is now your application's job.
+// `sendPasswordResetEmail` was replaced by `createPasswordReset`. WorkOS still sends the
+// password reset email itself; what changed is that the link's destination is no longer a
+// per-call argument. Configure it once per environment as the AuthKit `passwordResetUrl`
+// setting — for this example, point it at
+// http://localhost:3000/using-your-own-ui/reset-password
 //
-// The token must never reach the browser. Anyone can submit anyone else's address here, so
-// returning it would let a stranger reset an account they don't own. Send it out of band, to
-// the address itself — that round trip is what proves the person controls the account.
+// `createPasswordReset` also returns `passwordResetToken`. Never pass that back to the
+// caller: anyone can submit anyone else's address here, so returning it would let a stranger
+// reset an account they don't own. Receiving the email is what proves ownership, so the
+// token must only ever travel that way.
 //
-// Standing in for that email, this example prints the link to the server console. Replace
-// this with a real send (Resend, nodemailer, SES, ...) in your own app.
+// The development-only log below is a convenience for local work. The emailed link works on
+// its own, so this block is safe to delete.
 export async function sendReset(prevState: any, formData: FormData) {
   const email = String(formData.get('email'));
 
