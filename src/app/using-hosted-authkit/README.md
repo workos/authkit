@@ -28,7 +28,7 @@ For the `authkit-nextjs` example, you'll need to add the following to your envir
 
 ```bash
 # Needed for authkit-nextjs library example, defined in WorkOS dashboard
-WORKOS_REDIRECT_URI=
+NEXT_PUBLIC_WORKOS_REDIRECT_URI=
 
 # Needed for authkit-nextjs library example. Must be at least 32 characters long
 WORKOS_COOKIE_PASSWORD=
@@ -52,5 +52,5 @@ And update the `.env.local` file:
 
 ```bash
 # ...
-JWT_SECRET_KEY="<your JTW secret>"
+JWT_SECRET_KEY="<your JWT secret>"
 ```

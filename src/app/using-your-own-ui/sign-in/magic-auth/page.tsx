@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { useFormState } from 'react-dom';
+import { useActionState } from 'react';
 import { sendCode, signIn } from './magic-auth';
 
 export default function SignInWithMagicAuth() {
@@ -10,11 +10,11 @@ export default function SignInWithMagicAuth() {
   // If your application is a single page app (SPA), you will need to:
   // - handle the form submission in `<form onSubmit>`
   // - make an API call to your backend (e.g using `fetch`)
-  const [sendCodeState, sendCodeAction] = useFormState(sendCode, { error: null });
-  const [signInState, signInAction] = useFormState(signIn, { error: null });
+  const [sendCodeState, sendCodeAction] = useActionState(sendCode, { submitted: false });
+  const [signInState, signInAction] = useActionState(signIn, { error: null });
   const [email, setEmail] = React.useState('');
 
-  if (sendCodeState?.error === null) {
+  if (!sendCodeState.submitted) {
     return (
       <main key="email">
         <h1>Sign-in</h1>
@@ -37,8 +37,6 @@ export default function SignInWithMagicAuth() {
 
           <button type="submit">Send code</button>
         </form>
-
-        <pre>{JSON.stringify(sendCodeState, null, 2)}</pre>
       </main>
     );
   }

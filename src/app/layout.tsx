@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { AuthKitProvider } from '@workos-inc/authkit-nextjs/components';
 
 import './globals.css';
 import BackLink from './back-link';
@@ -15,8 +16,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <BackLink />
-        {children}
+        <AuthKitProvider>
+          <BackLink />
+          {children}
+        </AuthKitProvider>
       </body>
     </html>
   );

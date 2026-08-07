@@ -1,6 +1,6 @@
 'use client';
 
-import { useFormState } from 'react-dom';
+import { useActionState } from 'react';
 import { getUser, updateUser } from './update-user';
 
 export default function UpdateUser() {
@@ -9,8 +9,8 @@ export default function UpdateUser() {
   // If your application is a single page app (SPA), you will need to:
   // - handle the form submission in `<form onSubmit>`
   // - make an API call to your backend (e.g using `fetch`)
-  const [getUserState, getUserAction] = useFormState(getUser, { error: null });
-  const [updateUserState, updateUserAction] = useFormState(updateUser, { error: null });
+  const [getUserState, getUserAction] = useActionState(getUser, { error: null });
+  const [updateUserState, updateUserAction] = useActionState(updateUser, { error: null });
 
   if (!('user' in getUserState)) {
     return (

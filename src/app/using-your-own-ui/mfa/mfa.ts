@@ -29,7 +29,7 @@ export async function signIn(prevState: any, formData: FormData): Promise<SignIn
 
     if (err.rawData.code === 'mfa_enrollment') {
       const { authenticationFactor, authenticationChallenge } =
-        await workos.userManagement.enrollAuthFactor({
+        await workos.multiFactorAuth.createUserAuthFactor({
           userId: err.rawData.user.id,
           type: 'totp',
           totpIssuer: 'WorkOS',
@@ -43,7 +43,7 @@ export async function signIn(prevState: any, formData: FormData): Promise<SignIn
     }
 
     if (err.rawData.code === 'mfa_challenge') {
-      const challenge = await workos.mfa.challengeFactor({
+      const challenge = await workos.multiFactorAuth.challengeFactor({
         authenticationFactorId: err.rawData.authentication_factors[0].id,
       });
       return {
@@ -76,7 +76,9 @@ type UnpackPromise<T> = T extends Promise<infer U> ? U : T;
 type AuthenticateResponse = UnpackPromise<
   ReturnType<typeof workos.userManagement.authenticateWithPassword>
 >;
-type EnrollResponse = UnpackPromise<ReturnType<typeof workos.userManagement.enrollAuthFactor>>;
+type EnrollResponse = UnpackPromise<
+  ReturnType<typeof workos.multiFactorAuth.createUserAuthFactor>
+>;
 type SignInResponse =
   | AuthenticateResponse
   | {

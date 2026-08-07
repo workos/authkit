@@ -27,7 +27,7 @@ export async function getUser(): Promise<{
   isAuthenticated: boolean;
   user?: User | null;
 }> {
-  const token = cookies().get('token')?.value;
+  const token = (await cookies()).get('token')?.value;
 
   if (token) {
     const verifiedToken = await verifyJwtToken(token);
@@ -44,6 +44,6 @@ export async function getUser(): Promise<{
 
 // Clear the session and redirect to the home page
 export async function signOut() {
-  cookies().delete('token');
+  (await cookies()).delete('token');
   redirect('/using-hosted-authkit/with-session');
 }

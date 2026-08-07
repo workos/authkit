@@ -44,3 +44,16 @@ SSO_ENABLED_ORGANIZATION_ID="<your Organization ID>"
 - [Reset password](./reset-password/page.tsx)
 - [Users table](./users-table/page.tsx)
 - [Update user](./update-user/page.tsx)
+
+For the Reset password example, WorkOS sends the password reset email for you, and the link it
+contains points at a URL you configure per environment rather than one passed in the API call.
+In your WorkOS dashboard, open your environment's AuthKit authentication settings and set the
+password reset URL to:
+
+```bash
+http://localhost:3000/using-your-own-ui/reset-password
+```
+
+Until that is set, the emailed link will not return to this example. The reset token is
+deliberately never shown in the app — receiving the email is what proves the person owns the
+address, so the token only ever travels that way.

@@ -24,7 +24,7 @@ You will need a [WorkOS account](https://dashboard.workos.com/signup).
 
 ## Running the example
 
-1. Install dependencies with `npm install` or `yarn install`
+1. Install dependencies with `npm install`
 2. Set up your **Environment variables** by signing into your [WorkOS dashboard](https://dashboard.workos.com), navigate to **API Keys** and copy the **Client ID** and the **Secret Key** (API Key).
    Rename the `.env.local.example` file to `.env.local` and supply your _Client ID_ and _Secret Key_.
 
@@ -63,4 +63,4 @@ You will need a [WorkOS account](https://dashboard.workos.com/signup).
    http://localhost:3000/using-hosted-authkit/with-nextjs/callback
    ```
 
-4. Run the example with `npm run dev` or `yarn dev` and navigate to http://localhost:3000
+4. Run the example with `npm run dev` and navigate to http://localhost:3000

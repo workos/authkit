@@ -1,22 +1,23 @@
 'use client';
 
-import { useFormState } from 'react-dom';
+import { use, useActionState } from 'react';
 import { sendReset, resetPassword } from './reset-password';
 
 export default function ResetPassword({
   searchParams,
 }: {
-  searchParams: { token?: string; email?: string };
+  searchParams: Promise<{ token?: string; email?: string }>;
 }) {
-  const { token, email } = searchParams;
+  // `searchParams` is a promise in Next.js 16. Client Components unwrap it with `use()`.
+  const { token, email } = use(searchParams);
 
   // This example uses Next.js server actions to call functions on the server side.
   //
   // If your application is a single page app (SPA), you will need to:
   // - handle the form submission in `<form onSubmit>`
   // - make an API call to your backend (e.g using `fetch`)
-  const [sendResetState, sendResetAction] = useFormState(sendReset, { error: null });
-  const [resetPasswordState, resetPasswordAction] = useFormState(resetPassword, { error: null });
+  const [sendResetState, sendResetAction] = useActionState(sendReset, { submitted: false });
+  const [resetPasswordState, resetPasswordAction] = useActionState(resetPassword, { error: null });
 
   if (!token) {
     return (
@@ -40,7 +41,16 @@ export default function ResetPassword({
           <button type="submit">Send reset instructions</button>
         </form>
 
-        <pre>{JSON.stringify(sendResetState, null, 2)}</pre>
+        {/*
+          Intentionally says the same thing either way, and shows no token — see `sendReset`
+          for why the token must never be rendered here.
+        */}
+        {sendResetState.submitted && (
+          <p>
+            If an account exists for that address, WorkOS has emailed it a reset link. Opening
+            that link returns here with a token in the URL.
+          </p>
+        )}
       </main>
     );
   }
