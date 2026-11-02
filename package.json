@@ -12,7 +12,7 @@
     "@workos-inc/authkit-nextjs": "^4.3.0",
     "@workos-inc/node": "^10.8.0",
     "jose": "^5.2.3",
-    "next": "16.2.12",
+    "next": "16.4.4",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
